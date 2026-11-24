@@ -1,0 +1,54 @@
+name: Lab 2 - Docker runtime check
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lab2-check.yml'
+      - 'lab2/check-runtime.cjs'
+permissions:
+  contents: write
+jobs:
+  runtime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare Node-RED and install required nodes
+        run: |
+          mkdir -p lab2/data lab2/evidence
+          node -e 'const fs=require("fs");const a=fs.readdirSync("lab2/flows").filter(x=>x.endsWith(".json")).sort().flatMap(x=>JSON.parse(fs.readFileSync("lab2/flows/"+x)));fs.writeFileSync("lab2/data/flows.json",JSON.stringify(a))'
+          sudo chown -R 1000:1000 lab2/data
+          docker pull nodered/node-red:latest
+          docker run --rm -v "$PWD/lab2/data:/data" --entrypoint npm nodered/node-red:latest install --prefix /data node-red-dashboard node-red-contrib-telegrambot
+          docker compose -f lab2/compose.yaml up -d
+          for i in $(seq 1 60); do curl -fsS http://localhost:1880/ >/dev/null && break; sleep 2; done
+          curl -fsS http://localhost:1880/ >/dev/null
+          docker exec smirnov-node-red node -v | tee lab2/evidence/node-version.txt
+          docker ps --filter name=smirnov-node-red | tee lab2/evidence/docker-ps.txt
+          docker logs smirnov-node-red 2>&1 | tee lab2/evidence/startup.log
+      - name: Browser screenshots and endpoint checks
+        run: |
+          npm install --prefix /tmp/lab2-browser playwright
+          /tmp/lab2-browser/node_modules/.bin/playwright install --with-deps chromium
+          NODE_PATH=/tmp/lab2-browser/node_modules node lab2/check-runtime.cjs
+      - name: Capture runtime logs
+        if: always()
+        run: |
+          mkdir -p lab2/evidence
+          docker logs smirnov-node-red >lab2/evidence/runtime.log 2>&1 || true
+      - name: Upload genuine test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lab2-runtime-evidence
+          path: lab2/evidence/
+      - name: Save evidence to repository
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add lab2/evidence/
+          if ! git diff --cached --quiet; then
+            git commit -m "Record lab2 Docker runtime evidence"
+            git push origin HEAD:main
+          fi
