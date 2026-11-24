@@ -277,6 +277,64 @@
           }
         },
         {
+          "id": "lab5-weather-http",
+          "type": "Webhook",
+          "options": {
+            "isCustomBody": false,
+            "isExecutedOnClient": false,
+            "webhook": {
+              "method": "GET",
+              "url": "https://api.open-meteo.com/v1/forecast",
+              "queryParams": [
+                {
+                  "id": "lat",
+                  "key": "latitude",
+                  "value": "53.6693"
+                },
+                {
+                  "id": "lon",
+                  "key": "longitude",
+                  "value": "23.8131"
+                },
+                {
+                  "id": "cur",
+                  "key": "current",
+                  "value": "temperature_2m"
+                },
+                {
+                  "id": "tz",
+                  "key": "timezone",
+                  "value": "Europe/Minsk"
+                }
+              ]
+            },
+            "responseVariableMapping": [
+              {
+                "id": "lab5-temp-map",
+                "bodyPath": "data.current.temperature_2m",
+                "variableId": "lab5-temp-variable-0001"
+              }
+            ],
+            "timeout": 15
+          }
+        },
+        {
+          "id": "lab5-weather-result",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Температура в Гродно: {{Температура}} °C (если значение пустое, сервис временно недоступен)."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
           "id": "cl96o6a2700153b6il1wj2aev",
           "type": "choice input",
           "items": [
@@ -710,9 +768,44 @@
       "isSessionVariable": true
     }
   ],
-  "theme": {},
+  "theme": {
+    "general": {
+      "font": "Open Sans",
+      "background": {
+        "type": "Color",
+        "content": "#F1F5F9"
+      }
+    },
+    "chat": {
+      "hostBubbles": {
+        "backgroundColor": "#E2E8F0",
+        "color": "#0F172A"
+      },
+      "guestBubbles": {
+        "backgroundColor": "#1D4ED8",
+        "color": "#FFFFFF"
+      },
+      "buttons": {
+        "backgroundColor": "#1D4ED8",
+        "color": "#FFFFFF"
+      },
+      "inputs": {
+        "backgroundColor": "#FFFFFF",
+        "color": "#0F172A",
+        "placeholderColor": "#64748B"
+      }
+    }
+  },
   "selectedThemeTemplateId": null,
-  "settings": {},
+  "settings": {
+    "general": {
+      "isBrandingEnabled": true
+    },
+    "metadata": {
+      "title": "Учебный FAQ Смирнова",
+      "description": "ТВП, СДП УИР 241 — демонстрация Typebot."
+    }
+  },
   "createdAt": "2023-11-07T07:31:34.987Z",
   "updatedAt": "2023-11-07T07:34:11.360Z",
   "icon": "💬",

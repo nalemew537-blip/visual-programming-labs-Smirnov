@@ -1,0 +1,8 @@
+{
+  "method": "static reference validation; not a Typebot runtime test",
+  "groups": 10,
+  "blocks": 32,
+  "edges": 10,
+  "variables": 4,
+  "invalidReferences": 0
+}
