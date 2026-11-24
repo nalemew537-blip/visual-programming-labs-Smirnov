@@ -1,0 +1,25 @@
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    ports:
+      - "127.0.0.1:5678:5678"
+    volumes:
+      - ./state:/home/node/.n8n
+      - ./data:/data
+      - ./flows:/imports:ro
+    environment:
+      TZ: Europe/Minsk
+      GENERIC_TIMEZONE: Europe/Minsk
+      N8N_SECURE_COOKIE: "false"
+      N8N_DIAGNOSTICS_ENABLED: "false"
+      N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "true"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  redis:
+    image: redis:7
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - redis-data:/data
+volumes:
+  redis-data:
