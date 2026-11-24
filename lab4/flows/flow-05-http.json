@@ -1,0 +1,81 @@
+{
+  "id": "lab4workflow0005",
+  "name": "05 Smirnov / СДП УИР 241 — HTTP Request",
+  "nodes": [
+    {
+      "id": "40000000-0000-4000-8000-000000000001",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "40000000-0000-4000-8000-000000000002",
+      "name": "GET Cat fact",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        0
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://catfact.ninja/fact",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "40000000-0000-4000-8000-000000000003",
+      "name": "Return JSON",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        0
+      ],
+      "parameters": {
+        "jsCode": "return $input.all().map(i=>({json:{...i.json,student:\"Smirnov\",group:\"СДП УИР 241\"}}));"
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "GET Cat fact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET Cat fact": {
+      "main": [
+        [
+          {
+            "node": "Return JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Minsk"
+  },
+  "pinData": {}
+}

@@ -1,0 +1,58 @@
+{
+  "id": "lab4workflow0006",
+  "name": "06 Smirnov / СДП УИР 241 — Schedule",
+  "nodes": [
+    {
+      "id": "40000000-0000-4000-8000-000000000001",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "40000000-0000-4000-8000-000000000002",
+      "name": "Current time",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        0
+      ],
+      "parameters": {
+        "jsCode": "return [{json:{student:\"Smirnov\",group:\"СДП УИР 241\",payload:new Date().toISOString()}}];"
+      }
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Current time",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Minsk"
+  },
+  "pinData": {}
+}
