@@ -38,8 +38,9 @@ services:
       SMTP_HOST: mailpit
       SMTP_PORT: "1025"
       SMTP_SECURE: "false"
-      SMTP_AUTH_DISABLED: "true"
-      NEXT_PUBLIC_SMTP_FROM: "Typebot <lab5@example.invalid>"
+      SMTP_AUTH_DISABLED: "false"
+      SMTP_IGNORE_TLS: "true"
+      NEXT_PUBLIC_SMTP_FROM: "Typebot <lab5@example.com>"
       NODE_OPTIONS: --no-node-snapshot
     ports:
       - "127.0.0.1:8080:3000"
