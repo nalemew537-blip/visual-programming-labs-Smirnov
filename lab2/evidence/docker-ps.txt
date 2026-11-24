@@ -1,2 +1,2 @@
 CONTAINER ID   IMAGE                     COMMAND             CREATED         STATUS                            PORTS                      NAMES
-6f5245557e6e   nodered/node-red:latest   "./entrypoint.sh"   2 seconds ago   Up 2 seconds (health: starting)   127.0.0.1:1880->1880/tcp   smirnov-node-red
+dc8c7864db7c   nodered/node-red:latest   "./entrypoint.sh"   2 seconds ago   Up 2 seconds (health: starting)   127.0.0.1:1880->1880/tcp   smirnov-node-red
