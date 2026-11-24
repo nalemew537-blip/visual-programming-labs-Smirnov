@@ -1,0 +1,63 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: typebot
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set in .env}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d typebot"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  redis:
+    image: redis:7
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "127.0.0.1:8025:8025"
+  builder:
+    image: baptistearno/typebot-builder:latest
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD}@db:5432/typebot
+      REDIS_URL: redis://redis:6379
+      NEXTAUTH_URL: http://localhost:8080
+      NEXT_PUBLIC_VIEWER_URL: http://127.0.0.1:8081
+      SMTP_HOST: mailpit
+      SMTP_PORT: "1025"
+      SMTP_SECURE: "false"
+      SMTP_AUTH_DISABLED: "true"
+      NEXT_PUBLIC_SMTP_FROM: "Typebot <lab5@example.invalid>"
+      NODE_OPTIONS: --no-node-snapshot
+    ports:
+      - "127.0.0.1:8080:3000"
+  viewer:
+    image: baptistearno/typebot-viewer:latest
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD}@db:5432/typebot
+      REDIS_URL: redis://redis:6379
+      NEXTAUTH_URL: http://localhost:8080
+      NEXT_PUBLIC_VIEWER_URL: http://127.0.0.1:8081
+      NODE_OPTIONS: --no-node-snapshot
+    ports:
+      - "127.0.0.1:8081:3000"
+volumes:
+  db-data:
