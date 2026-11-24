@@ -1,20 +1,21 @@
-24 Nov 23:29:36 - [info] 
+24 Nov 23:32:38 - [info] 
 
 Welcome to Node-RED
 ===================
 
-24 Nov 23:29:36 - [info] Node-RED version: v5.0.10
-24 Nov 23:29:36 - [info] Node.js  version: v24.22.3
-24 Nov 23:29:36 - [info] Linux 7.0.0-1020-azure x64 LE
-24 Nov 23:29:36 - [info] Loading palette nodes
-24 Nov 23:29:36 - [info] node-red-contrib-telegrambot version: v19.0.5
-24 Nov 23:29:36 - [info] Dashboard version 3.6.6 started at /ui
-24 Nov 23:29:37 - [info] Settings file  : /data/settings.js
-24 Nov 23:29:37 - [info] Context store  : 'default' [module=memory]
-24 Nov 23:29:37 - [info] User directory : /data
-24 Nov 23:29:37 - [warn] Projects disabled : editorTheme.projects.enabled=false
-24 Nov 23:29:37 - [info] Flows file     : /data/flows.json
-24 Nov 23:29:37 - [warn] 
+24 Nov 23:32:38 - [info] Node-RED version: v5.0.10
+24 Nov 23:32:38 - [info] Node.js  version: v24.22.3
+24 Nov 23:32:38 - [info] Linux 7.0.0-1020-azure x64 LE
+24 Nov 23:32:38 - [info] Loading palette nodes
+24 Nov 23:32:38 - [info] node-red-contrib-telegrambot version: v19.0.5
+24 Nov 23:32:38 - [info] Dashboard version 3.6.6 started at /ui
+24 Nov 23:32:38 - [info] Settings file  : /data/settings.js
+24 Nov 23:32:38 - [info] Context store  : 'default' [module=memory]
+24 Nov 23:32:38 - [info] User directory : /data
+24 Nov 23:32:38 - [warn] Projects disabled : editorTheme.projects.enabled=false
+24 Nov 23:32:38 - [info] Flows file     : /data/flows.json
+24 Nov 23:32:38 - [info] Server now running at http://127.0.0.1:1880/
+24 Nov 23:32:38 - [warn] 
 
 ---------------------------------------------------------------------
 Your flow credentials file is encrypted using a system-generated key.
@@ -28,11 +29,9 @@ your settings file. Node-RED will then re-encrypt your credentials
 file using your chosen key the next time you deploy a change.
 ---------------------------------------------------------------------
 
-24 Nov 23:29:37 - [info] Server now running at http://127.0.0.1:1880/
-24 Nov 23:29:37 - [warn] Encrypted credentials not found
-24 Nov 23:29:37 - [info] Starting flows
-24 Nov 23:29:37 - [warn] [telegram bot:l2-10-bot] Aborting: Token of tvl_lab2_smirnov_bot is not set
-24 Nov 23:29:37 - [warn] [telegram receiver:Входящие сообщения] bot not initialized.
-24 Nov 23:29:37 - [warn] [telegram sender:Ответ в Telegram] bot not initialized.
-24 Nov 23:29:37 - [info] Started flows
-24 Nov 23:29:37 - [info] [mqtt-broker:HiveMQ public] Connected to broker: mqtt://broker.hivemq.com:1883
+24 Nov 23:32:38 - [warn] Encrypted credentials not found
+24 Nov 23:32:38 - [info] Starting flows
+24 Nov 23:32:38 - [warn] [telegram bot:l2-10-bot] Aborting: Token of tvl_lab2_smirnov_bot is not set
+24 Nov 23:32:38 - [warn] [telegram receiver:Входящие сообщения] bot not initialized.
+24 Nov 23:32:38 - [warn] [telegram sender:Ответ в Telegram] bot not initialized.
+24 Nov 23:32:38 - [info] Started flows

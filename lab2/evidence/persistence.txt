@@ -1,10 +1,10 @@
 POST write inject
 OKBefore restart:
-{"student":"Smirnov","timestamp":"2026-11-24T23:30:49.702Z"}
+{"student":"Smirnov","group":"СДП УИР 241","timestamp":"2026-11-24T23:33:47.993Z"}
  Container smirnov-node-red Restarting 
  Container smirnov-node-red Started 
-curl: (52) Empty reply from server
+curl: (56) Recv failure: Connection reset by peer
 After restart:
-{"student":"Smirnov","timestamp":"2026-11-24T23:30:49.702Z"}
+{"student":"Smirnov","group":"СДП УИР 241","timestamp":"2026-11-24T23:33:47.993Z"}
 PASS: file content identical after restart
 OKPASS: read inject accepted

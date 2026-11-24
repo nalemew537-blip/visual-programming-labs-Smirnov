@@ -1,20 +1,21 @@
-24 Nov 23:29:36 - [info] 
+24 Nov 23:32:38 - [info] 
 
 Welcome to Node-RED
 ===================
 
-24 Nov 23:29:36 - [info] Node-RED version: v5.0.10
-24 Nov 23:29:36 - [info] Node.js  version: v24.22.3
-24 Nov 23:29:36 - [info] Linux 7.0.0-1020-azure x64 LE
-24 Nov 23:29:36 - [info] Loading palette nodes
-24 Nov 23:29:36 - [info] node-red-contrib-telegrambot version: v19.0.5
-24 Nov 23:29:36 - [info] Dashboard version 3.6.6 started at /ui
-24 Nov 23:29:37 - [info] Settings file  : /data/settings.js
-24 Nov 23:29:37 - [info] Context store  : 'default' [module=memory]
-24 Nov 23:29:37 - [info] User directory : /data
-24 Nov 23:29:37 - [warn] Projects disabled : editorTheme.projects.enabled=false
-24 Nov 23:29:37 - [info] Flows file     : /data/flows.json
-24 Nov 23:29:37 - [warn] 
+24 Nov 23:32:38 - [info] Node-RED version: v5.0.10
+24 Nov 23:32:38 - [info] Node.js  version: v24.22.3
+24 Nov 23:32:38 - [info] Linux 7.0.0-1020-azure x64 LE
+24 Nov 23:32:38 - [info] Loading palette nodes
+24 Nov 23:32:38 - [info] node-red-contrib-telegrambot version: v19.0.5
+24 Nov 23:32:38 - [info] Dashboard version 3.6.6 started at /ui
+24 Nov 23:32:38 - [info] Settings file  : /data/settings.js
+24 Nov 23:32:38 - [info] Context store  : 'default' [module=memory]
+24 Nov 23:32:38 - [info] User directory : /data
+24 Nov 23:32:38 - [warn] Projects disabled : editorTheme.projects.enabled=false
+24 Nov 23:32:38 - [info] Flows file     : /data/flows.json
+24 Nov 23:32:38 - [info] Server now running at http://127.0.0.1:1880/
+24 Nov 23:32:38 - [warn] 
 
 ---------------------------------------------------------------------
 Your flow credentials file is encrypted using a system-generated key.
@@ -28,288 +29,275 @@ your settings file. Node-RED will then re-encrypt your credentials
 file using your chosen key the next time you deploy a change.
 ---------------------------------------------------------------------
 
-24 Nov 23:29:37 - [info] Server now running at http://127.0.0.1:1880/
-24 Nov 23:29:37 - [warn] Encrypted credentials not found
-24 Nov 23:29:37 - [info] Starting flows
-24 Nov 23:29:37 - [warn] [telegram bot:l2-10-bot] Aborting: Token of tvl_lab2_smirnov_bot is not set
-24 Nov 23:29:37 - [warn] [telegram receiver:Входящие сообщения] bot not initialized.
-24 Nov 23:29:37 - [warn] [telegram sender:Ответ в Telegram] bot not initialized.
-24 Nov 23:29:37 - [info] Started flows
-24 Nov 23:29:37 - [info] [mqtt-broker:HiveMQ public] Connected to broker: mqtt://broker.hivemq.com:1883
-24 Nov 23:29:42 - [info] [debug:Полное сообщение] 
+24 Nov 23:32:38 - [warn] Encrypted credentials not found
+24 Nov 23:32:38 - [info] Starting flows
+24 Nov 23:32:38 - [warn] [telegram bot:l2-10-bot] Aborting: Token of tvl_lab2_smirnov_bot is not set
+24 Nov 23:32:38 - [warn] [telegram receiver:Входящие сообщения] bot not initialized.
+24 Nov 23:32:38 - [warn] [telegram sender:Ответ в Telegram] bot not initialized.
+24 Nov 23:32:38 - [info] Started flows
+24 Nov 23:32:43 - [info] [debug:Полное сообщение] 
 {
   payload: 'Smirnov',
   topic: 'lab2/Smirnov/basic',
-  _msgid: '207a9459fa961934'
+  _msgid: 'd1a33421f084ec74'
 }
-24 Nov 23:29:42 - [info] [debug:Получено с брокера] 
+24 Nov 23:32:48 - [info] [debug:Полное сообщение] 
+{
+  payload: 'Smirnov',
+  topic: 'lab2/Smirnov/basic',
+  _msgid: '65cdd7c66d98be3d'
+}
+24 Nov 23:32:49 - [info] [mqtt-broker:HiveMQ public] Connected to broker: mqtt://broker.hivemq.com:1883
+24 Nov 23:32:53 - [info] [debug:Полное сообщение] 
+{
+  payload: 'Smirnov',
+  topic: 'lab2/Smirnov/basic',
+  _msgid: '7b08e2b7599c85ca'
+}
+24 Nov 23:32:53 - [info] [debug:Получено с брокера] 
 {
   topic: 'student/Smirnov/lab2/temperature',
-  payload: 23,
+  payload: 27,
   qos: 0,
   retain: false,
-  _msgid: '5afb1d8a9a40ae8a'
+  _msgid: '8cfee59061fc5f96'
 }
-24 Nov 23:29:47 - [info] [debug:Полное сообщение] 
+24 Nov 23:32:58 - [info] [debug:Полное сообщение] 
 {
   payload: 'Smirnov',
   topic: 'lab2/Smirnov/basic',
-  _msgid: 'e49d02bcc0e588ce'
+  _msgid: 'd48074821b6172a5'
 }
-24 Nov 23:29:47 - [info] [debug:Получено с брокера] 
+24 Nov 23:32:58 - [info] [debug:Получено с брокера] 
 {
   topic: 'student/Smirnov/lab2/temperature',
-  payload: 22,
+  payload: 21,
   qos: 0,
   retain: false,
-  _msgid: '483e4de82c74a136'
+  _msgid: '478e6d27f79e7416'
 }
-24 Nov 23:29:52 - [info] [debug:Полное сообщение] 
+24 Nov 23:32:59 - [info] [debug:Полное сообщение] 
 {
-  payload: 'Smirnov',
-  topic: 'lab2/Smirnov/basic',
-  _msgid: '8f07ecc316a43cf8'
-}
-24 Nov 23:29:52 - [info] [debug:Получено с брокера] 
-{
-  topic: 'student/Smirnov/lab2/temperature',
-  payload: 28,
-  qos: 0,
-  retain: false,
-  _msgid: '368d2277c4737914'
-}
-24 Nov 23:29:57 - [info] [debug:Полное сообщение] 
-{
-  payload: 'Smirnov',
-  topic: 'lab2/Smirnov/basic',
-  _msgid: 'a8997018340db567'
-}
-24 Nov 23:29:57 - [info] [debug:Получено с брокера] 
-{
-  topic: 'student/Smirnov/lab2/temperature',
-  payload: 18,
-  qos: 0,
-  retain: false,
-  _msgid: '9f3f76e017f17b45'
-}
-24 Nov 23:30:02 - [info] [debug:Полное сообщение] 
-{
-  payload: 'Smirnov',
-  topic: 'lab2/Smirnov/basic',
-  _msgid: '0f0a23f83550d352'
-}
-24 Nov 23:30:02 - [info] [debug:Полное сообщение] 
-{
-  _msgid: '612f9ef48fa66dd0',
+  _msgid: '2133f2996d0402f0',
   payload: 'Smirnov',
   topic: 'lab2/Smirnov/basic'
 }
-24 Nov 23:30:02 - [info] [debug:Получено с брокера] 
-{
-  topic: 'student/Smirnov/lab2/temperature',
-  payload: 28,
-  qos: 0,
-  retain: false,
-  _msgid: '64dfdd019b060172'
-}
-24 Nov 23:30:04 - [info] [debug:Объект результата] 
+24 Nov 23:33:02 - [info] [debug:Объект результата] 
 {
   student: 'Smirnov',
-  group: 'not-set',
+  group: 'СДП УИР 241',
   input: 12,
   sum: 20,
   category: 'high'
 }
-24 Nov 23:30:06 - [info] [debug:high] 
-{
-  student: 'Smirnov',
-  group: 'not-set',
-  input: 12,
-  sum: 20,
-  category: 'high'
-}
-24 Nov 23:30:07 - [info] [debug:Полное сообщение] 
+24 Nov 23:33:03 - [info] [debug:Полное сообщение] 
 {
   payload: 'Smirnov',
   topic: 'lab2/Smirnov/basic',
-  _msgid: '8ed0149469d2f742'
+  _msgid: 'dc593f88bbd8aadd'
 }
-24 Nov 23:30:07 - [info] [debug:Получено с брокера] 
+24 Nov 23:33:03 - [info] [debug:Получено с брокера] 
 {
   topic: 'student/Smirnov/lab2/temperature',
-  payload: 26,
+  payload: 27,
   qos: 0,
   retain: false,
-  _msgid: '398e2a700de26743'
+  _msgid: '431acc3a41eae66a'
 }
-24 Nov 23:30:07 - [info] [debug:low] 
+24 Nov 23:33:04 - [info] [debug:high] 
 {
   student: 'Smirnov',
-  group: 'not-set',
+  group: 'СДП УИР 241',
+  input: 12,
+  sum: 20,
+  category: 'high'
+}
+24 Nov 23:33:05 - [info] [debug:low] 
+{
+  student: 'Smirnov',
+  group: 'СДП УИР 241',
   input: 4,
   sum: 20,
   category: 'low'
 }
-24 Nov 23:30:09 - [info] [debug:Все поля] 
+24 Nov 23:33:07 - [info] [debug:Все поля] 
 {
-  _msgid: '8d5837eef4d58162',
+  _msgid: '3fbd9aa38bfb5b8b',
   payload: 'Smirnov: updated',
   topic: 'lab2/Smirnov/change',
-  timestamp: 1795563009909
+  timestamp: 1795563187544
 }
-24 Nov 23:30:12 - [info] [debug:Полное сообщение] 
+24 Nov 23:33:08 - [info] [debug:Полное сообщение] 
 {
   payload: 'Smirnov',
   topic: 'lab2/Smirnov/basic',
-  _msgid: '6ae7551a9aa5688a'
+  _msgid: '3dd9c5a749bf8e71'
 }
-24 Nov 23:30:12 - [info] [debug:Получено с брокера] 
-{
-  topic: 'student/Smirnov/lab2/temperature',
-  payload: 19,
-  qos: 0,
-  retain: false,
-  _msgid: '89528ffa69f5c32e'
-}
-24 Nov 23:30:12 - [info] [debug:Текст] Студент: Smirnov; предмет: Node-RED; балл: 10
-24 Nov 23:30:15 - [info] [debug:JSON ответа] 
-{
-  fact: 'The average lifespan of an outdoor-only (feral and non-feral) is about 3 years; an indoor-only cat can live 16 years and longer. Some cats have been documented to have a longevity of 34 years.',
-  length: 192
-}
-24 Nov 23:30:17 - [info] [debug:Полное сообщение] 
-{
-  payload: 'Smirnov',
-  topic: 'lab2/Smirnov/basic',
-  _msgid: '13cce2c6099fca09'
-}
-24 Nov 23:30:17 - [info] [debug:Получено с брокера] 
-{
-  topic: 'student/Smirnov/lab2/temperature',
-  payload: 18,
-  qos: 0,
-  retain: false,
-  _msgid: 'f2162b6e4dbd0fbd'
-}
-24 Nov 23:30:17 - [info] [debug:Получено с брокера] 
-{
-  topic: 'student/Smirnov/lab2/temperature',
-  payload: 19,
-  qos: 0,
-  retain: false,
-  _msgid: '995ea485ab9b841d'
-}
-24 Nov 23:30:22 - [info] [debug:Полное сообщение] 
-{
-  payload: 'Smirnov',
-  topic: 'lab2/Smirnov/basic',
-  _msgid: '96fadf12bdad51b7'
-}
-24 Nov 23:30:22 - [info] [debug:Получено с брокера] 
+24 Nov 23:33:08 - [info] [debug:Получено с брокера] 
 {
   topic: 'student/Smirnov/lab2/temperature',
   payload: 25,
   qos: 0,
   retain: false,
-  _msgid: 'dca8213c20a8f2af'
+  _msgid: '92cda7bd55eede4d'
 }
-24 Nov 23:30:27 - [info] [debug:Полное сообщение] 
+24 Nov 23:33:09 - [info] [debug:Текст] Студент: Smirnov; предмет: Node-RED; балл: 10
+24 Nov 23:33:12 - [info] [debug:JSON ответа] 
+{
+  fact: 'The Maine Coon is 4 to 5 times larger than the Singapura, the smallest breed of cat.',
+  length: 84
+}
+24 Nov 23:33:13 - [info] [debug:Полное сообщение] 
 {
   payload: 'Smirnov',
   topic: 'lab2/Smirnov/basic',
-  _msgid: '0e542b0697d8a996'
+  _msgid: '76a7f71b8d5f09b6'
 }
-24 Nov 23:30:27 - [info] [debug:Получено с брокера] 
-{
-  topic: 'student/Smirnov/lab2/temperature',
-  payload: 23,
-  qos: 0,
-  retain: false,
-  _msgid: '705650703387949d'
-}
-24 Nov 23:30:32 - [info] [debug:Полное сообщение] 
-{
-  payload: 'Smirnov',
-  topic: 'lab2/Smirnov/basic',
-  _msgid: 'c20a8c0798f697c6'
-}
-24 Nov 23:30:32 - [info] [debug:Получено с брокера] 
-{
-  topic: 'student/Smirnov/lab2/temperature',
-  payload: 18,
-  qos: 0,
-  retain: false,
-  _msgid: '3cb774b537cf2d6b'
-}
-24 Nov 23:30:36 - [info] [debug:Запись завершена] {"student":"Smirnov","timestamp":"2026-11-24T23:30:36.102Z"}
-24 Nov 23:30:36 - [info] [debug:Содержимое файла] 
-{"student":"Smirnov","timestamp":"2026-11-24T23:30:36.102Z"}
-
-24 Nov 23:30:37 - [info] [debug:Полное сообщение] 
-{
-  payload: 'Smirnov',
-  topic: 'lab2/Smirnov/basic',
-  _msgid: '56616dd84ad49f7f'
-}
-24 Nov 23:30:37 - [info] [debug:Получено с брокера] 
+24 Nov 23:33:13 - [info] [debug:Получено с брокера] 
 {
   topic: 'student/Smirnov/lab2/temperature',
   payload: 20,
   qos: 0,
   retain: false,
-  _msgid: '7f53300e9a2666d4'
+  _msgid: '651c28aa3dfe7499'
 }
-24 Nov 23:30:39 - [info] [debug:Счётчик] 
-{ student: 'Smirnov', count: 1 }
-24 Nov 23:30:42 - [info] [debug:Полное сообщение] 
+24 Nov 23:33:14 - [info] [debug:Получено с брокера] 
+{
+  topic: 'student/Smirnov/lab2/temperature',
+  payload: 27,
+  qos: 0,
+  retain: false,
+  _msgid: '05518effe442e12a'
+}
+24 Nov 23:33:18 - [info] [debug:Полное сообщение] 
 {
   payload: 'Smirnov',
   topic: 'lab2/Smirnov/basic',
-  _msgid: '6ae606455e178d70'
+  _msgid: 'a5e7238237884abf'
 }
-24 Nov 23:30:42 - [info] [debug:Получено с брокера] 
+24 Nov 23:33:18 - [info] [debug:Получено с брокера] 
+{
+  topic: 'student/Smirnov/lab2/temperature',
+  payload: 20,
+  qos: 0,
+  retain: false,
+  _msgid: 'a0514e8fb265fb95'
+}
+24 Nov 23:33:23 - [info] [debug:Полное сообщение] 
+{
+  payload: 'Smirnov',
+  topic: 'lab2/Smirnov/basic',
+  _msgid: '87911a817cde900b'
+}
+24 Nov 23:33:23 - [info] [debug:Получено с брокера] 
+{
+  topic: 'student/Smirnov/lab2/temperature',
+  payload: 27,
+  qos: 0,
+  retain: false,
+  _msgid: 'ff12ac6a93e7d97a'
+}
+24 Nov 23:33:28 - [info] [debug:Полное сообщение] 
+{
+  payload: 'Smirnov',
+  topic: 'lab2/Smirnov/basic',
+  _msgid: 'e04dcbf1b3ca23c7'
+}
+24 Nov 23:33:29 - [info] [debug:Получено с брокера] 
 {
   topic: 'student/Smirnov/lab2/temperature',
   payload: 23,
   qos: 0,
   retain: false,
-  _msgid: '7e25e2d9d794738c'
+  _msgid: '0161032b57f8ffe2'
 }
-24 Nov 23:30:47 - [info] [debug:Полное сообщение] 
+24 Nov 23:33:33 - [info] [debug:Запись завершена] {"student":"Smirnov","group":"СДП УИР 241","timestamp":"2026-11-24T23:33:33.725Z"}
+24 Nov 23:33:33 - [info] [debug:Полное сообщение] 
 {
   payload: 'Smirnov',
   topic: 'lab2/Smirnov/basic',
-  _msgid: '57f833a1b24f6789'
+  _msgid: 'a4226bea97e378b0'
 }
-24 Nov 23:30:47 - [info] [debug:Получено с брокера] 
+24 Nov 23:33:34 - [info] [debug:Получено с брокера] 
 {
   topic: 'student/Smirnov/lab2/temperature',
-  payload: 24,
+  payload: 29,
   qos: 0,
   retain: false,
-  _msgid: '338d1c637b06732f'
+  _msgid: '8368044ec28385e2'
 }
-24 Nov 23:30:49 - [info] [debug:Запись завершена] {"student":"Smirnov","timestamp":"2026-11-24T23:30:49.702Z"}
-24 Nov 23:30:51 - [info] Stopping flows
-24 Nov 23:30:52 - [info] [mqtt-broker:HiveMQ public] Disconnected from broker: mqtt://broker.hivemq.com:1883
-24 Nov 23:30:52 - [info] Stopped flows
-24 Nov 23:30:52 - [info] 
+24 Nov 23:33:34 - [info] [debug:Содержимое файла] 
+{"student":"Smirnov","group":"СДП УИР 241","timestamp":"2026-11-24T23:33:33.725Z"}
+
+24 Nov 23:33:36 - [info] [debug:Счётчик] 
+{ student: 'Smirnov', group: 'СДП УИР 241', count: 1 }
+24 Nov 23:33:38 - [info] [debug:Счётчик] 
+{ student: 'Smirnov', group: 'СДП УИР 241', count: 2 }
+24 Nov 23:33:38 - [info] [debug:Счётчик] 
+{ student: 'Smirnov', group: 'СДП УИР 241', count: 3 }
+24 Nov 23:33:38 - [info] [debug:Полное сообщение] 
+{
+  payload: 'Smirnov',
+  topic: 'lab2/Smirnov/basic',
+  _msgid: 'c180f7c15d0b4335'
+}
+24 Nov 23:33:39 - [info] [debug:Получено с брокера] 
+{
+  topic: 'student/Smirnov/lab2/temperature',
+  payload: 27,
+  qos: 0,
+  retain: false,
+  _msgid: '34409956b9553805'
+}
+24 Nov 23:33:43 - [info] [debug:Полное сообщение] 
+{
+  payload: 'Smirnov',
+  topic: 'lab2/Smirnov/basic',
+  _msgid: 'c8e4186c9414976d'
+}
+24 Nov 23:33:44 - [info] [debug:Получено с брокера] 
+{
+  topic: 'student/Smirnov/lab2/temperature',
+  payload: 28,
+  qos: 0,
+  retain: false,
+  _msgid: 'befab7121ccdbac4'
+}
+24 Nov 23:33:47 - [info] [debug:Запись завершена] {"student":"Smirnov","group":"СДП УИР 241","timestamp":"2026-11-24T23:33:47.993Z"}
+24 Nov 23:33:48 - [info] [debug:Полное сообщение] 
+{
+  payload: 'Smirnov',
+  topic: 'lab2/Smirnov/basic',
+  _msgid: 'eb64b88552e78a3b'
+}
+24 Nov 23:33:49 - [info] [debug:Получено с брокера] 
+{
+  topic: 'student/Smirnov/lab2/temperature',
+  payload: 21,
+  qos: 0,
+  retain: false,
+  _msgid: 'b5f8c8c4993a4221'
+}
+24 Nov 23:33:50 - [info] Stopping flows
+24 Nov 23:33:50 - [info] [mqtt-broker:HiveMQ public] Disconnected from broker: mqtt://broker.hivemq.com:1883
+24 Nov 23:33:50 - [info] Stopped flows
+24 Nov 23:33:50 - [info] 
 
 Welcome to Node-RED
 ===================
 
-24 Nov 23:30:52 - [info] Node-RED version: v5.0.10
-24 Nov 23:30:52 - [info] Node.js  version: v24.22.3
-24 Nov 23:30:52 - [info] Linux 7.0.0-1020-azure x64 LE
-24 Nov 23:30:52 - [info] Loading palette nodes
-24 Nov 23:30:53 - [info] node-red-contrib-telegrambot version: v19.0.5
-24 Nov 23:30:53 - [info] Dashboard version 3.6.6 started at /ui
-24 Nov 23:30:53 - [info] Settings file  : /data/settings.js
-24 Nov 23:30:53 - [info] Context store  : 'default' [module=memory]
-24 Nov 23:30:53 - [info] User directory : /data
-24 Nov 23:30:53 - [warn] Projects disabled : editorTheme.projects.enabled=false
-24 Nov 23:30:53 - [info] Flows file     : /data/flows.json
-24 Nov 23:30:53 - [warn] 
+24 Nov 23:33:50 - [info] Node-RED version: v5.0.10
+24 Nov 23:33:50 - [info] Node.js  version: v24.22.3
+24 Nov 23:33:50 - [info] Linux 7.0.0-1020-azure x64 LE
+24 Nov 23:33:50 - [info] Loading palette nodes
+24 Nov 23:33:51 - [info] node-red-contrib-telegrambot version: v19.0.5
+24 Nov 23:33:51 - [info] Dashboard version 3.6.6 started at /ui
+24 Nov 23:33:51 - [info] Settings file  : /data/settings.js
+24 Nov 23:33:51 - [info] Context store  : 'default' [module=memory]
+24 Nov 23:33:51 - [info] User directory : /data
+24 Nov 23:33:51 - [warn] Projects disabled : editorTheme.projects.enabled=false
+24 Nov 23:33:51 - [info] Flows file     : /data/flows.json
+24 Nov 23:33:51 - [warn] 
 
 ---------------------------------------------------------------------
 Your flow credentials file is encrypted using a system-generated key.
@@ -323,31 +311,31 @@ your settings file. Node-RED will then re-encrypt your credentials
 file using your chosen key the next time you deploy a change.
 ---------------------------------------------------------------------
 
-24 Nov 23:30:53 - [warn] Encrypted credentials not found
-24 Nov 23:30:53 - [info] Server now running at http://127.0.0.1:1880/
-24 Nov 23:30:53 - [info] Starting flows
-24 Nov 23:30:53 - [warn] [telegram bot:l2-10-bot] Aborting: Token of tvl_lab2_smirnov_bot is not set
-24 Nov 23:30:53 - [warn] [telegram receiver:Входящие сообщения] bot not initialized.
-24 Nov 23:30:53 - [warn] [telegram sender:Ответ в Telegram] bot not initialized.
-24 Nov 23:30:53 - [info] Started flows
-24 Nov 23:30:53 - [info] [mqtt-broker:HiveMQ public] Connected to broker: mqtt://broker.hivemq.com:1883
-24 Nov 23:30:54 - [info] [debug:Содержимое файла] 
-{"student":"Smirnov","timestamp":"2026-11-24T23:30:49.702Z"}
+24 Nov 23:33:51 - [warn] Encrypted credentials not found
+24 Nov 23:33:51 - [info] Server now running at http://127.0.0.1:1880/
+24 Nov 23:33:51 - [info] Starting flows
+24 Nov 23:33:51 - [warn] [telegram bot:l2-10-bot] Aborting: Token of tvl_lab2_smirnov_bot is not set
+24 Nov 23:33:51 - [warn] [telegram receiver:Входящие сообщения] bot not initialized.
+24 Nov 23:33:51 - [warn] [telegram sender:Ответ в Telegram] bot not initialized.
+24 Nov 23:33:51 - [info] Started flows
+24 Nov 23:33:51 - [info] [mqtt-broker:HiveMQ public] Connected to broker: mqtt://broker.hivemq.com:1883
+24 Nov 23:33:52 - [info] [debug:Содержимое файла] 
+{"student":"Smirnov","group":"СДП УИР 241","timestamp":"2026-11-24T23:33:47.993Z"}
 
-24 Nov 23:30:58 - [info] [debug:Полное сообщение] 
+24 Nov 23:33:56 - [info] [debug:Полное сообщение] 
 {
   payload: 'Smirnov',
   topic: 'lab2/Smirnov/basic',
-  _msgid: 'e076d136f2ded8d3'
+  _msgid: '9a37411a96f85806'
 }
-24 Nov 23:30:58 - [info] [debug:Получено с брокера] 
+24 Nov 23:33:56 - [info] [debug:Получено с брокера] 
 {
   topic: 'student/Smirnov/lab2/temperature',
-  payload: 22,
+  payload: 27,
   qos: 0,
   retain: false,
-  _msgid: '680b3454776ac3b0'
+  _msgid: '5f117a724f6c7276'
 }
-24 Nov 23:30:59 - [info] [debug:Содержимое файла] 
-{"student":"Smirnov","timestamp":"2026-11-24T23:30:49.702Z"}
+24 Nov 23:33:57 - [info] [debug:Содержимое файла] 
+{"student":"Smirnov","group":"СДП УИР 241","timestamp":"2026-11-24T23:33:47.993Z"}
 
