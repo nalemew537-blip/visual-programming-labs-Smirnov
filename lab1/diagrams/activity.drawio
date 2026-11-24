@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram id="hotel-activity" name="Activity">
+    <mxGraphModel dx="900" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="start" value="" style="ellipse;aspect=fixed;fillColor=#263238;strokeColor=#263238;fontSize=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="349" y="29" width="22" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="input" value="Ввести платёжные данные" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#263238;arcSize=35;fontSize=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="225" y="87" width="270" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="validate" value="Проверить данные" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#263238;arcSize=35;fontSize=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="225" y="162" width="270" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="valid" value="Данные корректны?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#263238;verticalLabelPosition=top;verticalAlign=bottom;fontSize=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="336" y="241" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="charge" value="Провести оплату" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#263238;arcSize=35;fontSize=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="225" y="322" width="270" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="success" value="Оплата успешна?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#263238;verticalLabelPosition=top;verticalAlign=bottom;fontSize=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="336" y="401" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="error_merge" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#263238;fontSize=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="632" y="407" width="36" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="error" value="Показать ошибку" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#263238;arcSize=35;fontSize=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="555" y="482" width="190" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="ok" value="Показать подтверждение" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#263238;arcSize=35;fontSize=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="225" y="477" width="270" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="merge" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#263238;fontSize=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="342" y="642" width="36" height="36" as="geometry"/>
+        </mxCell>
+        <mxCell id="end" value="" style="ellipse;aspect=fixed;fillColor=#ffffff;strokeColor=#263238;fontSize=15;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="347" y="717" width="26" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="end_inner" value="" style="ellipse;aspect=fixed;fillColor=#263238;strokeColor=#263238;connectable=0;resizable=0;movable=0;" vertex="1" parent="end">
+          <mxGeometry x="5" y="5" width="16" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_start_input" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="start" target="input">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_input_validate" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="input" target="validate">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_validate_valid" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="validate" target="valid">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_valid_charge" value="[да]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="valid" target="charge">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_valid_error_merge" value="[нет]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;exitX=1;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="valid" target="error_merge">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="265"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_charge_success" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="charge" target="success">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_success_ok" value="[да]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="success" target="ok">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_success_error_merge" value="[нет]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="success" target="error_merge">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_error_merge_error" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="error_merge" target="error">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_ok_merge" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ok" target="merge">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_error_merge" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=1;entryY=0.5;" edge="1" parent="1" source="error" target="merge">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="660"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_merge_end" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="merge" target="end">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

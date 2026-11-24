@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_Hotel" targetNamespace="https://example.org/hotel">
+  <bpmn:process id="Process_Hotel" name="Бронирование номера в отеле" isExecutable="false">
+    <bpmn:startEvent id="Start" name="Начало">
+      <bpmn:outgoing>Flow_Start_Request</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Request" name="Получить заявку">
+      <bpmn:incoming>Flow_Start_Request</bpmn:incoming>
+      <bpmn:outgoing>Flow_Request_Dates</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Dates" name="Проверить даты">
+      <bpmn:incoming>Flow_Request_Dates</bpmn:incoming>
+      <bpmn:outgoing>Flow_Dates_Available</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Available" name="Проверить наличие">
+      <bpmn:incoming>Flow_Dates_Available</bpmn:incoming>
+      <bpmn:outgoing>Flow_Available_G1</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="G1" name="Номер есть?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_Available_G1</bpmn:incoming>
+      <bpmn:outgoing>Flow_G1_Pay</bpmn:outgoing>
+      <bpmn:outgoing>Flow_G1_NoRoom</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Pay" name="Обработать оплату">
+      <bpmn:incoming>Flow_G1_Pay</bpmn:incoming>
+      <bpmn:outgoing>Flow_Pay_G2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="G2" name="Оплата прошла?" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_Pay_G2</bpmn:incoming>
+      <bpmn:outgoing>Flow_G2_Split</bpmn:outgoing>
+      <bpmn:outgoing>Flow_G2_NoPay</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:parallelGateway id="Split" gatewayDirection="Diverging">
+      <bpmn:incoming>Flow_G2_Split</bpmn:incoming>
+      <bpmn:outgoing>Flow_Split_Room</bpmn:outgoing>
+      <bpmn:outgoing>Flow_Split_Confirm</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:task id="Room" name="Подготовить номер">
+      <bpmn:incoming>Flow_Split_Room</bpmn:incoming>
+      <bpmn:outgoing>Flow_Room_Join</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Confirm" name="Отправить подтверждение">
+      <bpmn:incoming>Flow_Split_Confirm</bpmn:incoming>
+      <bpmn:outgoing>Flow_Confirm_Join</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:parallelGateway id="Join" gatewayDirection="Converging">
+      <bpmn:incoming>Flow_Room_Join</bpmn:incoming>
+      <bpmn:incoming>Flow_Confirm_Join</bpmn:incoming>
+      <bpmn:outgoing>Flow_Join_Finish</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:task id="Finish" name="Завершить оформление">
+      <bpmn:incoming>Flow_Join_Finish</bpmn:incoming>
+      <bpmn:outgoing>Flow_Finish_End</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="End" name="Бронь оформлена">
+      <bpmn:incoming>Flow_Finish_End</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="NoRoom" name="Сообщить: номера нет">
+      <bpmn:incoming>Flow_G1_NoRoom</bpmn:incoming>
+      <bpmn:outgoing>Flow_NoRoom_EndNoRoom</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndNoRoom" name="Нет номера">
+      <bpmn:incoming>Flow_NoRoom_EndNoRoom</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="NoPay" name="Сообщить об ошибке">
+      <bpmn:incoming>Flow_G2_NoPay</bpmn:incoming>
+      <bpmn:outgoing>Flow_NoPay_EndNoPay</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndNoPay" name="Отказ в оплате">
+      <bpmn:incoming>Flow_NoPay_EndNoPay</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Start_Request" sourceRef="Start" targetRef="Request"/>
+    <bpmn:sequenceFlow id="Flow_Request_Dates" sourceRef="Request" targetRef="Dates"/>
+    <bpmn:sequenceFlow id="Flow_Dates_Available" sourceRef="Dates" targetRef="Available"/>
+    <bpmn:sequenceFlow id="Flow_Available_G1" sourceRef="Available" targetRef="G1"/>
+    <bpmn:sequenceFlow id="Flow_G1_Pay" sourceRef="G1" targetRef="Pay" name="Да"/>
+    <bpmn:sequenceFlow id="Flow_G1_NoRoom" sourceRef="G1" targetRef="NoRoom" name="Нет"/>
+    <bpmn:sequenceFlow id="Flow_NoRoom_EndNoRoom" sourceRef="NoRoom" targetRef="EndNoRoom"/>
+    <bpmn:sequenceFlow id="Flow_Pay_G2" sourceRef="Pay" targetRef="G2"/>
+    <bpmn:sequenceFlow id="Flow_G2_Split" sourceRef="G2" targetRef="Split" name="Да"/>
+    <bpmn:sequenceFlow id="Flow_G2_NoPay" sourceRef="G2" targetRef="NoPay" name="Нет"/>
+    <bpmn:sequenceFlow id="Flow_NoPay_EndNoPay" sourceRef="NoPay" targetRef="EndNoPay"/>
+    <bpmn:sequenceFlow id="Flow_Split_Room" sourceRef="Split" targetRef="Room"/>
+    <bpmn:sequenceFlow id="Flow_Split_Confirm" sourceRef="Split" targetRef="Confirm"/>
+    <bpmn:sequenceFlow id="Flow_Room_Join" sourceRef="Room" targetRef="Join"/>
+    <bpmn:sequenceFlow id="Flow_Confirm_Join" sourceRef="Confirm" targetRef="Join"/>
+    <bpmn:sequenceFlow id="Flow_Join_Finish" sourceRef="Join" targetRef="Finish"/>
+    <bpmn:sequenceFlow id="Flow_Finish_End" sourceRef="Finish" targetRef="End"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_Hotel">
+    <bpmndi:BPMNPlane id="Plane_Hotel" bpmnElement="Process_Hotel">
+      <bpmndi:BPMNShape id="Start_di" bpmnElement="Start">
+        <dc:Bounds x="37" y="202" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="-25" y="244" width="160" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Request_di" bpmnElement="Request">
+        <dc:Bounds x="130" y="184" width="120" height="72"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Dates_di" bpmnElement="Dates">
+        <dc:Bounds x="280" y="184" width="120" height="72"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Available_di" bpmnElement="Available">
+        <dc:Bounds x="430" y="184" width="120" height="72"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="G1_di" bpmnElement="G1" isMarkerVisible="true">
+        <dc:Bounds x="610" y="195" width="50" height="50"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="555" y="169" width="160" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Pay_di" bpmnElement="Pay">
+        <dc:Bounds x="720" y="184" width="120" height="72"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="G2_di" bpmnElement="G2" isMarkerVisible="true">
+        <dc:Bounds x="900" y="195" width="50" height="50"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="845" y="169" width="160" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Split_di" bpmnElement="Split">
+        <dc:Bounds x="1020" y="195" width="50" height="50"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Room_di" bpmnElement="Room">
+        <dc:Bounds x="1125" y="76" width="130" height="72"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Confirm_di" bpmnElement="Confirm">
+        <dc:Bounds x="1125" y="294" width="130" height="72"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Join_di" bpmnElement="Join">
+        <dc:Bounds x="1315" y="195" width="50" height="50"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Finish_di" bpmnElement="Finish">
+        <dc:Bounds x="1415" y="184" width="130" height="72"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="End_di" bpmnElement="End">
+        <dc:Bounds x="1762" y="202" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1700" y="244" width="160" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="NoRoom_di" bpmnElement="NoRoom">
+        <dc:Bounds x="565" y="404" width="140" height="72"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndNoRoom_di" bpmnElement="EndNoRoom">
+        <dc:Bounds x="782" y="422" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="720" y="464" width="160" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="NoPay_di" bpmnElement="NoPay">
+        <dc:Bounds x="860" y="509" width="130" height="72"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndNoPay_di" bpmnElement="EndNoPay">
+        <dc:Bounds x="1062" y="527" width="36" height="36"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1000" y="569" width="160" height="20"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_Start_Request_di" bpmnElement="Flow_Start_Request">
+        <di:waypoint x="73" y="220"/>
+        <di:waypoint x="130" y="220"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Request_Dates_di" bpmnElement="Flow_Request_Dates">
+        <di:waypoint x="250" y="220"/>
+        <di:waypoint x="280" y="220"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Dates_Available_di" bpmnElement="Flow_Dates_Available">
+        <di:waypoint x="400" y="220"/>
+        <di:waypoint x="430" y="220"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Available_G1_di" bpmnElement="Flow_Available_G1">
+        <di:waypoint x="550" y="220"/>
+        <di:waypoint x="610" y="220"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_G1_Pay_di" bpmnElement="Flow_G1_Pay">
+        <di:waypoint x="660" y="220"/>
+        <di:waypoint x="720" y="220"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="682" y="196" width="30" height="18"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_G1_NoRoom_di" bpmnElement="Flow_G1_NoRoom">
+        <di:waypoint x="635" y="245"/>
+        <di:waypoint x="635" y="404"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="639" y="316.5" width="30" height="18"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_NoRoom_EndNoRoom_di" bpmnElement="Flow_NoRoom_EndNoRoom">
+        <di:waypoint x="705" y="440"/>
+        <di:waypoint x="782" y="440"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Pay_G2_di" bpmnElement="Flow_Pay_G2">
+        <di:waypoint x="840" y="220"/>
+        <di:waypoint x="900" y="220"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_G2_Split_di" bpmnElement="Flow_G2_Split">
+        <di:waypoint x="950" y="220"/>
+        <di:waypoint x="1020" y="220"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="977" y="196" width="30" height="18"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_G2_NoPay_di" bpmnElement="Flow_G2_NoPay">
+        <di:waypoint x="925" y="245"/>
+        <di:waypoint x="925" y="509"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="929" y="369" width="30" height="18"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_NoPay_EndNoPay_di" bpmnElement="Flow_NoPay_EndNoPay">
+        <di:waypoint x="990" y="545"/>
+        <di:waypoint x="1062" y="545"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Split_Room_di" bpmnElement="Flow_Split_Room">
+        <di:waypoint x="1045" y="195"/>
+        <di:waypoint x="1045" y="112"/>
+        <di:waypoint x="1125" y="112"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Split_Confirm_di" bpmnElement="Flow_Split_Confirm">
+        <di:waypoint x="1045" y="245"/>
+        <di:waypoint x="1045" y="330"/>
+        <di:waypoint x="1125" y="330"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Room_Join_di" bpmnElement="Flow_Room_Join">
+        <di:waypoint x="1255" y="112"/>
+        <di:waypoint x="1340" y="112"/>
+        <di:waypoint x="1340" y="195"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Confirm_Join_di" bpmnElement="Flow_Confirm_Join">
+        <di:waypoint x="1255" y="330"/>
+        <di:waypoint x="1340" y="330"/>
+        <di:waypoint x="1340" y="245"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Join_Finish_di" bpmnElement="Flow_Join_Finish">
+        <di:waypoint x="1365" y="220"/>
+        <di:waypoint x="1415" y="220"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Finish_End_di" bpmnElement="Flow_Finish_End">
+        <di:waypoint x="1545" y="220"/>
+        <di:waypoint x="1762" y="220"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
