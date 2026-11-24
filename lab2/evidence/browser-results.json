@@ -1,0 +1,92 @@
+[
+  {
+    "flow": "flow-01-inject-debug.json",
+    "inject": "Smirnov / каждые 5 секунд",
+    "status": 200
+  },
+  {
+    "flow": "flow-02-function.json",
+    "inject": "Число 12",
+    "status": 200
+  },
+  {
+    "flow": "flow-03-switch.json",
+    "inject": "Число 12",
+    "status": 200
+  },
+  {
+    "flow": "flow-03-switch.json",
+    "inject": "Число 4",
+    "status": 200
+  },
+  {
+    "flow": "flow-04-change.json",
+    "inject": "Исходное сообщение",
+    "status": 200
+  },
+  {
+    "flow": "flow-05-template.json",
+    "inject": "Данные студента",
+    "status": 200
+  },
+  {
+    "flow": "flow-06-http-request.json",
+    "inject": "Запрос факта о кошках",
+    "status": 200
+  },
+  {
+    "flow": "flow-07-mqtt.json",
+    "inject": "Температура / 5 секунд",
+    "status": 200
+  },
+  {
+    "flow": "flow-09-dashboard.json",
+    "inject": "Датчик / 5 секунд",
+    "status": 200
+  },
+  {
+    "flow": "flow-11-files.json",
+    "inject": "Записать данные",
+    "status": 200
+  },
+  {
+    "flow": "flow-11-files.json",
+    "inject": "Прочитать данные",
+    "status": 200
+  },
+  {
+    "flow": "flow-12-context.json",
+    "inject": "Увеличить счётчик",
+    "status": 200
+  },
+  {
+    "url": "/api/text",
+    "status": 200,
+    "expected": 200,
+    "body": "Hello from Smirnov"
+  },
+  {
+    "url": "/api/info",
+    "status": 200,
+    "expected": 200,
+    "body": "{\"student\":\"Smirnov\",\"lab\":2}"
+  },
+  {
+    "url": "/api/items?id=1",
+    "status": 200,
+    "expected": 200,
+    "body": "{\"id\":1,\"name\":\"Book\"}"
+  },
+  {
+    "url": "/api/items?id=abc",
+    "status": 400,
+    "expected": 400,
+    "body": "{\"error\":\"id must be a positive integer\"}"
+  },
+  {
+    "url": "/api/items?id=99",
+    "status": 404,
+    "expected": 404,
+    "body": "{\"error\":\"Item not found\"}"
+  }
+]
