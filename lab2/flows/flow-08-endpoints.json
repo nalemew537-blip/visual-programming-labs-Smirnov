@@ -1,0 +1,153 @@
+[
+  {
+    "id": "lab2-tab-08",
+    "type": "tab",
+    "label": "08 Smirnov — GET API",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "l2-08-text",
+    "type": "http in",
+    "z": "lab2-tab-08",
+    "name": "GET /api/text",
+    "x": 150,
+    "y": 80,
+    "wires": [
+      [
+        "l2-08-textfn"
+      ]
+    ],
+    "url": "/api/text",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": ""
+  },
+  {
+    "id": "l2-08-textfn",
+    "type": "function",
+    "z": "lab2-tab-08",
+    "name": "Ответ text",
+    "x": 400,
+    "y": 80,
+    "wires": [
+      [
+        "l2-08-textres"
+      ]
+    ],
+    "func": "msg.payload = \"Hello from Smirnov\";\nmsg.headers = {\"Content-Type\":\"text/plain; charset=utf-8\"};\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "l2-08-textres",
+    "type": "http response",
+    "z": "lab2-tab-08",
+    "name": "HTTP response",
+    "x": 660,
+    "y": 80,
+    "wires": [],
+    "statusCode": "",
+    "headers": {}
+  },
+  {
+    "id": "l2-08-info",
+    "type": "http in",
+    "z": "lab2-tab-08",
+    "name": "GET /api/info",
+    "x": 150,
+    "y": 170,
+    "wires": [
+      [
+        "l2-08-infofn"
+      ]
+    ],
+    "url": "/api/info",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": ""
+  },
+  {
+    "id": "l2-08-infofn",
+    "type": "function",
+    "z": "lab2-tab-08",
+    "name": "Ответ info",
+    "x": 400,
+    "y": 170,
+    "wires": [
+      [
+        "l2-08-infores"
+      ]
+    ],
+    "func": "msg.payload = {student:\"Smirnov\", lab:2};\nmsg.headers = {\"Content-Type\":\"application/json\"};\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "l2-08-infores",
+    "type": "http response",
+    "z": "lab2-tab-08",
+    "name": "HTTP response",
+    "x": 660,
+    "y": 170,
+    "wires": [],
+    "statusCode": "",
+    "headers": {}
+  },
+  {
+    "id": "l2-08-items",
+    "type": "http in",
+    "z": "lab2-tab-08",
+    "name": "GET /api/items",
+    "x": 150,
+    "y": 260,
+    "wires": [
+      [
+        "l2-08-itemsfn"
+      ]
+    ],
+    "url": "/api/items",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": ""
+  },
+  {
+    "id": "l2-08-itemsfn",
+    "type": "function",
+    "z": "lab2-tab-08",
+    "name": "Ответ items",
+    "x": 400,
+    "y": 260,
+    "wires": [
+      [
+        "l2-08-itemsres"
+      ]
+    ],
+    "func": "const items = [{id:1,name:\"Book\"},{id:2,name:\"Pen\"}];\nconst q = msg.req.query || {};\nmsg.headers = {\"Content-Type\":\"application/json\"};\nif (q.id === undefined) { msg.statusCode=200; msg.payload=items; }\nelse if (typeof q.id !== \"string\" || !/^[1-9][0-9]*$/.test(q.id) || !Number.isSafeInteger(Number(q.id))) { msg.statusCode=400; msg.payload={error:\"id must be a positive integer\"}; }\nelse { const item=items.find(i=>i.id===Number(q.id)); msg.statusCode=item?200:404; msg.payload=item||{error:\"Item not found\"}; }\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "l2-08-itemsres",
+    "type": "http response",
+    "z": "lab2-tab-08",
+    "name": "HTTP response",
+    "x": 660,
+    "y": 260,
+    "wires": [],
+    "statusCode": "",
+    "headers": {}
+  }
+]

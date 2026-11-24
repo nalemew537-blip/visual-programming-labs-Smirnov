@@ -1,0 +1,74 @@
+[
+  {
+    "id": "lab2-tab-05",
+    "type": "tab",
+    "label": "05 Smirnov — Template",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "l2-05-in",
+    "type": "inject",
+    "z": "lab2-tab-05",
+    "name": "Данные студента",
+    "x": 140,
+    "y": 100,
+    "wires": [
+      [
+        "l2-05-tmpl"
+      ]
+    ],
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "lab2/Smirnov/template",
+    "payload": "{\"student\":\"Smirnov\",\"subject\":\"Node-RED\",\"score\":10}",
+    "payloadType": "json"
+  },
+  {
+    "id": "l2-05-tmpl",
+    "type": "template",
+    "z": "lab2-tab-05",
+    "name": "Mustache",
+    "x": 360,
+    "y": 100,
+    "wires": [
+      [
+        "l2-05-out"
+      ]
+    ],
+    "field": "payload",
+    "fieldType": "msg",
+    "format": "text",
+    "syntax": "mustache",
+    "template": "Студент: {{payload.student}}; предмет: {{payload.subject}}; балл: {{payload.score}}",
+    "output": "str"
+  },
+  {
+    "id": "l2-05-out",
+    "type": "debug",
+    "z": "lab2-tab-05",
+    "name": "Текст",
+    "x": 570,
+    "y": 100,
+    "wires": [],
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto"
+  }
+]

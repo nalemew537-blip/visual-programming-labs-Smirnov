@@ -1,0 +1,79 @@
+[
+  {
+    "id": "lab2-tab-06",
+    "type": "tab",
+    "label": "06 Smirnov — HTTP Request",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "l2-06-in",
+    "type": "inject",
+    "z": "lab2-tab-06",
+    "name": "Запрос факта о кошках",
+    "x": 160,
+    "y": 100,
+    "wires": [
+      [
+        "l2-06-http"
+      ]
+    ],
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "lab2/Smirnov/http",
+    "payload": "",
+    "payloadType": "date"
+  },
+  {
+    "id": "l2-06-http",
+    "type": "http request",
+    "z": "lab2-tab-06",
+    "name": "GET catfact.ninja",
+    "x": 390,
+    "y": 100,
+    "wires": [
+      [
+        "l2-06-out"
+      ]
+    ],
+    "method": "GET",
+    "ret": "obj",
+    "paytoqs": "ignore",
+    "url": "https://catfact.ninja/fact",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "insecureHTTPParser": false,
+    "authType": "",
+    "senderr": false,
+    "headers": []
+  },
+  {
+    "id": "l2-06-out",
+    "type": "debug",
+    "z": "lab2-tab-06",
+    "name": "JSON ответа",
+    "x": 630,
+    "y": 100,
+    "wires": [],
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto"
+  }
+]
