@@ -1,0 +1,101 @@
+{
+  "id": "lab4workflow0004",
+  "name": "04 Smirnov / СДП УИР 241 — Set fields",
+  "nodes": [
+    {
+      "id": "40000000-0000-4000-8000-000000000001",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "40000000-0000-4000-8000-000000000002",
+      "name": "Edit Fields (Set)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        0
+      ],
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "40000000-0000-4000-9000-000000000001",
+              "name": "topic",
+              "value": "lab4/Smirnov/SDP-UIR-241/change",
+              "type": "string"
+            },
+            {
+              "id": "40000000-0000-4000-9000-000000000002",
+              "name": "timestamp",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "40000000-0000-4000-9000-000000000003",
+              "name": "payload",
+              "value": "Smirnov — updated",
+              "type": "string"
+            },
+            {
+              "id": "40000000-0000-4000-9000-000000000004",
+              "name": "group",
+              "value": "СДП УИР 241",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "40000000-0000-4000-8000-000000000003",
+      "name": "Complete object",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        0
+      ],
+      "parameters": {
+        "jsCode": "return $input.all();"
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields (Set)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields (Set)": {
+      "main": [
+        [
+          {
+            "node": "Complete object",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Minsk"
+  },
+  "pinData": {}
+}
