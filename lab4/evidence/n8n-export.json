@@ -1,0 +1,1044 @@
+[
+  {
+    "updatedAt": "2026-11-24T23:56:52.373Z",
+    "createdAt": "2026-11-24T23:56:52.373Z",
+    "id": "lab4workflow0001",
+    "name": "01 Smirnov / СДП УИР 241 — Manual / Set / Code",
+    "description": null,
+    "active": false,
+    "isArchived": false,
+    "nodes": [
+      {
+        "id": "40000000-0000-4000-8000-000000000001",
+        "name": "Manual Trigger",
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          0,
+          0
+        ],
+        "parameters": {}
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000002",
+        "name": "Edit Fields (Set)",
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          240,
+          0
+        ],
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "40000000-0000-4000-9000-000000000001",
+                "name": "payload",
+                "value": "Smirnov",
+                "type": "string"
+              },
+              {
+                "id": "40000000-0000-4000-9000-000000000002",
+                "name": "topic",
+                "value": "lab4/Smirnov/basic",
+                "type": "string"
+              },
+              {
+                "id": "40000000-0000-4000-9000-000000000003",
+                "name": "group",
+                "value": "СДП УИР 241",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        }
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000003",
+        "name": "Debug",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          480,
+          0
+        ],
+        "parameters": {
+          "jsCode": "return $input.all();"
+        }
+      }
+    ],
+    "connections": {
+      "Manual Trigger": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields (Set)",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Edit Fields (Set)": {
+        "main": [
+          [
+            {
+              "node": "Debug",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "settings": {
+      "executionOrder": "v1",
+      "timezone": "Europe/Minsk"
+    },
+    "staticData": null,
+    "meta": null,
+    "nodeGroups": [],
+    "pinData": {},
+    "versionId": "ecd573d2-fcdf-4016-ac04-e277547f1f76",
+    "activeVersionId": null,
+    "versionCounter": 1,
+    "triggerCount": 0,
+    "sourceWorkflowId": null,
+    "tags": [],
+    "shared": [
+      {
+        "updatedAt": "2026-11-24T23:56:52.376Z",
+        "createdAt": "2026-11-24T23:56:52.376Z",
+        "role": "workflow:owner",
+        "workflowId": "lab4workflow0001",
+        "projectId": "ZFeg9QvzXN5A0ky6",
+        "project": {
+          "updatedAt": "2026-11-24T23:56:45.465Z",
+          "createdAt": "2026-11-24T23:56:23.523Z",
+          "id": "ZFeg9QvzXN5A0ky6",
+          "name": "Arseniy Smirnov <lab4-test@example.invalid>",
+          "type": "personal",
+          "icon": null,
+          "description": null,
+          "customTelemetryTags": [],
+          "creatorId": "7c5b9ed3-d5df-47b4-934e-385bfffd1264"
+        }
+      }
+    ],
+    "versionMetadata": {
+      "name": null,
+      "description": null
+    }
+  },
+  {
+    "updatedAt": "2026-11-24T23:56:52.377Z",
+    "createdAt": "2026-11-24T23:56:52.377Z",
+    "id": "lab4workflow0002",
+    "name": "02 Smirnov / СДП УИР 241 — Code",
+    "description": null,
+    "active": false,
+    "isArchived": false,
+    "nodes": [
+      {
+        "id": "40000000-0000-4000-8000-000000000001",
+        "name": "Manual Trigger",
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          0,
+          0
+        ],
+        "parameters": {}
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000002",
+        "name": "Calculate",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          240,
+          0
+        ],
+        "parameters": {
+          "jsCode": "const values = [2,4,6,8];\nlet sum=0;\nfor (const n of values) sum+=n;\nconst result={student:\"Smirnov\",group:\"СДП УИР 241\",sum};\nif(sum>=10){result.payload=\"high\";}else{result.payload=\"low\";}\nreturn [{json:result}];"
+        }
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000003",
+        "name": "NoOp",
+        "type": "n8n-nodes-base.noOp",
+        "typeVersion": 1,
+        "position": [
+          480,
+          0
+        ],
+        "parameters": {}
+      }
+    ],
+    "connections": {
+      "Manual Trigger": {
+        "main": [
+          [
+            {
+              "node": "Calculate",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Calculate": {
+        "main": [
+          [
+            {
+              "node": "NoOp",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "settings": {
+      "executionOrder": "v1",
+      "timezone": "Europe/Minsk"
+    },
+    "staticData": null,
+    "meta": null,
+    "nodeGroups": [],
+    "pinData": {},
+    "versionId": "4c284985-dc58-4977-9c46-79821028b65d",
+    "activeVersionId": null,
+    "versionCounter": 1,
+    "triggerCount": 0,
+    "sourceWorkflowId": null,
+    "tags": [],
+    "shared": [
+      {
+        "updatedAt": "2026-11-24T23:56:52.378Z",
+        "createdAt": "2026-11-24T23:56:52.378Z",
+        "role": "workflow:owner",
+        "workflowId": "lab4workflow0002",
+        "projectId": "ZFeg9QvzXN5A0ky6",
+        "project": {
+          "updatedAt": "2026-11-24T23:56:45.465Z",
+          "createdAt": "2026-11-24T23:56:23.523Z",
+          "id": "ZFeg9QvzXN5A0ky6",
+          "name": "Arseniy Smirnov <lab4-test@example.invalid>",
+          "type": "personal",
+          "icon": null,
+          "description": null,
+          "customTelemetryTags": [],
+          "creatorId": "7c5b9ed3-d5df-47b4-934e-385bfffd1264"
+        }
+      }
+    ],
+    "versionMetadata": {
+      "name": null,
+      "description": null
+    }
+  },
+  {
+    "updatedAt": "2026-11-24T23:56:52.380Z",
+    "createdAt": "2026-11-24T23:56:52.380Z",
+    "id": "lab4workflow0003",
+    "name": "03 Smirnov / СДП УИР 241 — IF",
+    "description": null,
+    "active": false,
+    "isArchived": false,
+    "nodes": [
+      {
+        "id": "40000000-0000-4000-8000-000000000001",
+        "name": "Manual Trigger",
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          0,
+          0
+        ],
+        "parameters": {}
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000002",
+        "name": "Classify",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          240,
+          0
+        ],
+        "parameters": {
+          "jsCode": "const values = [2,4,6,8];\nlet sum=0;\nfor (const n of values) sum+=n;\nconst result={student:\"Smirnov\",group:\"СДП УИР 241\",sum};\nif(sum>=10){result.payload=\"high\";}else{result.payload=\"low\";}\nreturn [{json:result},{json:{...result,sum:4,payload:\"low\"}}];"
+        }
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000003",
+        "name": "IF",
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.2,
+        "position": [
+          480,
+          0
+        ],
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 2
+            },
+            "conditions": [
+              {
+                "id": "40000000-0000-4000-8000-000000000099",
+                "leftValue": "={{ $json.payload }}",
+                "rightValue": "high",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        }
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000004",
+        "name": "True",
+        "type": "n8n-nodes-base.noOp",
+        "typeVersion": 1,
+        "position": [
+          720,
+          -100
+        ],
+        "parameters": {}
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000005",
+        "name": "False",
+        "type": "n8n-nodes-base.noOp",
+        "typeVersion": 1,
+        "position": [
+          720,
+          100
+        ],
+        "parameters": {}
+      }
+    ],
+    "connections": {
+      "Manual Trigger": {
+        "main": [
+          [
+            {
+              "node": "Classify",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Classify": {
+        "main": [
+          [
+            {
+              "node": "IF",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "IF": {
+        "main": [
+          [
+            {
+              "node": "True",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "False",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "settings": {
+      "executionOrder": "v1",
+      "timezone": "Europe/Minsk"
+    },
+    "staticData": null,
+    "meta": null,
+    "nodeGroups": [],
+    "pinData": {},
+    "versionId": "c96856e9-61b9-4c88-ac41-c18e165926f6",
+    "activeVersionId": null,
+    "versionCounter": 1,
+    "triggerCount": 0,
+    "sourceWorkflowId": null,
+    "tags": [],
+    "shared": [
+      {
+        "updatedAt": "2026-11-24T23:56:52.381Z",
+        "createdAt": "2026-11-24T23:56:52.381Z",
+        "role": "workflow:owner",
+        "workflowId": "lab4workflow0003",
+        "projectId": "ZFeg9QvzXN5A0ky6",
+        "project": {
+          "updatedAt": "2026-11-24T23:56:45.465Z",
+          "createdAt": "2026-11-24T23:56:23.523Z",
+          "id": "ZFeg9QvzXN5A0ky6",
+          "name": "Arseniy Smirnov <lab4-test@example.invalid>",
+          "type": "personal",
+          "icon": null,
+          "description": null,
+          "customTelemetryTags": [],
+          "creatorId": "7c5b9ed3-d5df-47b4-934e-385bfffd1264"
+        }
+      }
+    ],
+    "versionMetadata": {
+      "name": null,
+      "description": null
+    }
+  },
+  {
+    "updatedAt": "2026-11-24T23:56:52.382Z",
+    "createdAt": "2026-11-24T23:56:52.382Z",
+    "id": "lab4workflow0004",
+    "name": "04 Smirnov / СДП УИР 241 — Set fields",
+    "description": null,
+    "active": false,
+    "isArchived": false,
+    "nodes": [
+      {
+        "id": "40000000-0000-4000-8000-000000000001",
+        "name": "Manual Trigger",
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          0,
+          0
+        ],
+        "parameters": {}
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000002",
+        "name": "Edit Fields (Set)",
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          240,
+          0
+        ],
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "40000000-0000-4000-9000-000000000001",
+                "name": "topic",
+                "value": "lab4/Smirnov/SDP-UIR-241/change",
+                "type": "string"
+              },
+              {
+                "id": "40000000-0000-4000-9000-000000000002",
+                "name": "timestamp",
+                "value": "={{ $now.toISO() }}",
+                "type": "string"
+              },
+              {
+                "id": "40000000-0000-4000-9000-000000000003",
+                "name": "payload",
+                "value": "Smirnov — updated",
+                "type": "string"
+              },
+              {
+                "id": "40000000-0000-4000-9000-000000000004",
+                "name": "group",
+                "value": "СДП УИР 241",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        }
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000003",
+        "name": "Complete object",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          480,
+          0
+        ],
+        "parameters": {
+          "jsCode": "return $input.all();"
+        }
+      }
+    ],
+    "connections": {
+      "Manual Trigger": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields (Set)",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Edit Fields (Set)": {
+        "main": [
+          [
+            {
+              "node": "Complete object",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "settings": {
+      "executionOrder": "v1",
+      "timezone": "Europe/Minsk"
+    },
+    "staticData": null,
+    "meta": null,
+    "nodeGroups": [],
+    "pinData": {},
+    "versionId": "e3cbd6f0-9c4d-4e27-9446-e60b85af90e1",
+    "activeVersionId": null,
+    "versionCounter": 1,
+    "triggerCount": 0,
+    "sourceWorkflowId": null,
+    "tags": [],
+    "shared": [
+      {
+        "updatedAt": "2026-11-24T23:56:52.383Z",
+        "createdAt": "2026-11-24T23:56:52.383Z",
+        "role": "workflow:owner",
+        "workflowId": "lab4workflow0004",
+        "projectId": "ZFeg9QvzXN5A0ky6",
+        "project": {
+          "updatedAt": "2026-11-24T23:56:45.465Z",
+          "createdAt": "2026-11-24T23:56:23.523Z",
+          "id": "ZFeg9QvzXN5A0ky6",
+          "name": "Arseniy Smirnov <lab4-test@example.invalid>",
+          "type": "personal",
+          "icon": null,
+          "description": null,
+          "customTelemetryTags": [],
+          "creatorId": "7c5b9ed3-d5df-47b4-934e-385bfffd1264"
+        }
+      }
+    ],
+    "versionMetadata": {
+      "name": null,
+      "description": null
+    }
+  },
+  {
+    "updatedAt": "2026-11-24T23:56:52.384Z",
+    "createdAt": "2026-11-24T23:56:52.384Z",
+    "id": "lab4workflow0005",
+    "name": "05 Smirnov / СДП УИР 241 — HTTP Request",
+    "description": null,
+    "active": false,
+    "isArchived": false,
+    "nodes": [
+      {
+        "id": "40000000-0000-4000-8000-000000000001",
+        "name": "Manual Trigger",
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          0,
+          0
+        ],
+        "parameters": {}
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000002",
+        "name": "GET Cat fact",
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          240,
+          0
+        ],
+        "parameters": {
+          "method": "GET",
+          "url": "https://catfact.ninja/fact",
+          "options": {
+            "response": {
+              "response": {
+                "responseFormat": "json"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000003",
+        "name": "Return JSON",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          480,
+          0
+        ],
+        "parameters": {
+          "jsCode": "return $input.all().map(i=>({json:{...i.json,student:\"Smirnov\",group:\"СДП УИР 241\"}}));"
+        }
+      }
+    ],
+    "connections": {
+      "Manual Trigger": {
+        "main": [
+          [
+            {
+              "node": "GET Cat fact",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "GET Cat fact": {
+        "main": [
+          [
+            {
+              "node": "Return JSON",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "settings": {
+      "executionOrder": "v1",
+      "timezone": "Europe/Minsk"
+    },
+    "staticData": null,
+    "meta": null,
+    "nodeGroups": [],
+    "pinData": {},
+    "versionId": "5e43e25b-c313-452d-877c-d8faa7bc248e",
+    "activeVersionId": null,
+    "versionCounter": 1,
+    "triggerCount": 0,
+    "sourceWorkflowId": null,
+    "tags": [],
+    "shared": [
+      {
+        "updatedAt": "2026-11-24T23:56:52.385Z",
+        "createdAt": "2026-11-24T23:56:52.385Z",
+        "role": "workflow:owner",
+        "workflowId": "lab4workflow0005",
+        "projectId": "ZFeg9QvzXN5A0ky6",
+        "project": {
+          "updatedAt": "2026-11-24T23:56:45.465Z",
+          "createdAt": "2026-11-24T23:56:23.523Z",
+          "id": "ZFeg9QvzXN5A0ky6",
+          "name": "Arseniy Smirnov <lab4-test@example.invalid>",
+          "type": "personal",
+          "icon": null,
+          "description": null,
+          "customTelemetryTags": [],
+          "creatorId": "7c5b9ed3-d5df-47b4-934e-385bfffd1264"
+        }
+      }
+    ],
+    "versionMetadata": {
+      "name": null,
+      "description": null
+    }
+  },
+  {
+    "updatedAt": "2026-11-24T23:56:52.386Z",
+    "createdAt": "2026-11-24T23:56:52.386Z",
+    "id": "lab4workflow0006",
+    "name": "06 Smirnov / СДП УИР 241 — Schedule",
+    "description": null,
+    "active": false,
+    "isArchived": false,
+    "nodes": [
+      {
+        "id": "40000000-0000-4000-8000-000000000001",
+        "name": "Schedule Trigger",
+        "type": "n8n-nodes-base.scheduleTrigger",
+        "typeVersion": 1.2,
+        "position": [
+          0,
+          0
+        ],
+        "parameters": {
+          "rule": {
+            "interval": [
+              {
+                "field": "minutes",
+                "minutesInterval": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000002",
+        "name": "Current time",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          240,
+          0
+        ],
+        "parameters": {
+          "jsCode": "return [{json:{student:\"Smirnov\",group:\"СДП УИР 241\",payload:new Date().toISOString()}}];"
+        }
+      }
+    ],
+    "connections": {
+      "Schedule Trigger": {
+        "main": [
+          [
+            {
+              "node": "Current time",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "settings": {
+      "executionOrder": "v1",
+      "timezone": "Europe/Minsk"
+    },
+    "staticData": null,
+    "meta": null,
+    "nodeGroups": [],
+    "pinData": {},
+    "versionId": "3b656de5-845a-4a9a-be6d-d6f3f405f9bb",
+    "activeVersionId": null,
+    "versionCounter": 1,
+    "triggerCount": 0,
+    "sourceWorkflowId": null,
+    "tags": [],
+    "shared": [
+      {
+        "updatedAt": "2026-11-24T23:56:52.387Z",
+        "createdAt": "2026-11-24T23:56:52.387Z",
+        "role": "workflow:owner",
+        "workflowId": "lab4workflow0006",
+        "projectId": "ZFeg9QvzXN5A0ky6",
+        "project": {
+          "updatedAt": "2026-11-24T23:56:45.465Z",
+          "createdAt": "2026-11-24T23:56:23.523Z",
+          "id": "ZFeg9QvzXN5A0ky6",
+          "name": "Arseniy Smirnov <lab4-test@example.invalid>",
+          "type": "personal",
+          "icon": null,
+          "description": null,
+          "customTelemetryTags": [],
+          "creatorId": "7c5b9ed3-d5df-47b4-934e-385bfffd1264"
+        }
+      }
+    ],
+    "versionMetadata": {
+      "name": null,
+      "description": null
+    }
+  },
+  {
+    "updatedAt": "2026-11-24T23:56:52.388Z",
+    "createdAt": "2026-11-24T23:56:52.388Z",
+    "id": "lab4workflow0009",
+    "name": "09 Smirnov / СДП УИР 241 — Redis SET GET",
+    "description": null,
+    "active": false,
+    "isArchived": false,
+    "nodes": [
+      {
+        "id": "40000000-0000-4000-8000-000000000001",
+        "name": "Manual Trigger",
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          0,
+          0
+        ],
+        "parameters": {}
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000002",
+        "name": "Redis Set",
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          240,
+          0
+        ],
+        "parameters": {
+          "operation": "set",
+          "key": "smirnov",
+          "value": "Smirnov / СДП УИР 241",
+          "keyType": "string",
+          "expire": false
+        },
+        "credentials": {
+          "redis": {
+            "id": "lab4redis0000001",
+            "name": "Lab4 Redis Smirnov"
+          }
+        }
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000003",
+        "name": "Redis Get",
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          480,
+          0
+        ],
+        "parameters": {
+          "operation": "get",
+          "key": "smirnov",
+          "propertyName": "value",
+          "keyType": "string",
+          "options": {}
+        },
+        "credentials": {
+          "redis": {
+            "id": "lab4redis0000001",
+            "name": "Lab4 Redis Smirnov"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "Manual Trigger": {
+        "main": [
+          [
+            {
+              "node": "Redis Set",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis Set": {
+        "main": [
+          [
+            {
+              "node": "Redis Get",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "settings": {
+      "executionOrder": "v1",
+      "timezone": "Europe/Minsk"
+    },
+    "staticData": null,
+    "meta": null,
+    "nodeGroups": [],
+    "pinData": {},
+    "versionId": "1777c897-ea96-4f7c-9e9a-9af7debfee89",
+    "activeVersionId": null,
+    "versionCounter": 1,
+    "triggerCount": 0,
+    "sourceWorkflowId": null,
+    "tags": [],
+    "shared": [
+      {
+        "updatedAt": "2026-11-24T23:56:52.389Z",
+        "createdAt": "2026-11-24T23:56:52.389Z",
+        "role": "workflow:owner",
+        "workflowId": "lab4workflow0009",
+        "projectId": "ZFeg9QvzXN5A0ky6",
+        "project": {
+          "updatedAt": "2026-11-24T23:56:45.465Z",
+          "createdAt": "2026-11-24T23:56:23.523Z",
+          "id": "ZFeg9QvzXN5A0ky6",
+          "name": "Arseniy Smirnov <lab4-test@example.invalid>",
+          "type": "personal",
+          "icon": null,
+          "description": null,
+          "customTelemetryTags": [],
+          "creatorId": "7c5b9ed3-d5df-47b4-934e-385bfffd1264"
+        }
+      }
+    ],
+    "versionMetadata": {
+      "name": null,
+      "description": null
+    }
+  },
+  {
+    "updatedAt": "2026-11-24T23:56:52.390Z",
+    "createdAt": "2026-11-24T23:56:52.390Z",
+    "id": "lab4workflow0010",
+    "name": "10 Smirnov / СДП УИР 241 — Redis Delete / Exists",
+    "description": null,
+    "active": false,
+    "isArchived": false,
+    "nodes": [
+      {
+        "id": "40000000-0000-4000-8000-000000000001",
+        "name": "Manual Trigger",
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          0,
+          0
+        ],
+        "parameters": {}
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000002",
+        "name": "Redis Delete",
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          240,
+          0
+        ],
+        "parameters": {
+          "operation": "delete",
+          "key": "smirnov"
+        },
+        "credentials": {
+          "redis": {
+            "id": "lab4redis0000001",
+            "name": "Lab4 Redis Smirnov"
+          }
+        }
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000003",
+        "name": "Redis Get after delete",
+        "type": "n8n-nodes-base.redis",
+        "typeVersion": 1,
+        "position": [
+          480,
+          0
+        ],
+        "parameters": {
+          "operation": "get",
+          "key": "smirnov",
+          "propertyName": "value",
+          "keyType": "string",
+          "options": {}
+        },
+        "credentials": {
+          "redis": {
+            "id": "lab4redis0000001",
+            "name": "Lab4 Redis Smirnov"
+          }
+        }
+      },
+      {
+        "id": "40000000-0000-4000-8000-000000000004",
+        "name": "Exists check",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          720,
+          0
+        ],
+        "parameters": {
+          "jsCode": "return [{json:{key:\"smirnov\",exists:$json.value!==null && $json.value!==undefined,value:$json.value}}];"
+        }
+      }
+    ],
+    "connections": {
+      "Manual Trigger": {
+        "main": [
+          [
+            {
+              "node": "Redis Delete",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis Delete": {
+        "main": [
+          [
+            {
+              "node": "Redis Get after delete",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Redis Get after delete": {
+        "main": [
+          [
+            {
+              "node": "Exists check",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "settings": {
+      "executionOrder": "v1",
+      "timezone": "Europe/Minsk"
+    },
+    "staticData": null,
+    "meta": null,
+    "nodeGroups": [],
+    "pinData": {},
+    "versionId": "b233cf4e-4f03-48ab-bda1-0d49e1164ff6",
+    "activeVersionId": null,
+    "versionCounter": 1,
+    "triggerCount": 0,
+    "sourceWorkflowId": null,
+    "tags": [],
+    "shared": [
+      {
+        "updatedAt": "2026-11-24T23:56:52.391Z",
+        "createdAt": "2026-11-24T23:56:52.391Z",
+        "role": "workflow:owner",
+        "workflowId": "lab4workflow0010",
+        "projectId": "ZFeg9QvzXN5A0ky6",
+        "project": {
+          "updatedAt": "2026-11-24T23:56:45.465Z",
+          "createdAt": "2026-11-24T23:56:23.523Z",
+          "id": "ZFeg9QvzXN5A0ky6",
+          "name": "Arseniy Smirnov <lab4-test@example.invalid>",
+          "type": "personal",
+          "icon": null,
+          "description": null,
+          "customTelemetryTags": [],
+          "creatorId": "7c5b9ed3-d5df-47b4-934e-385bfffd1264"
+        }
+      }
+    ],
+    "versionMetadata": {
+      "name": null,
+      "description": null
+    }
+  }
+]
