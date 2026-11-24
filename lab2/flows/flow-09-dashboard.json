@@ -2,14 +2,14 @@
   {
     "id": "lab2-tab-09",
     "type": "tab",
-    "label": "09 Smirnov — Dashboard",
+    "label": "09 Smirnov / СДП УИР 241 — Dashboard",
     "disabled": false,
-    "info": ""
+    "info": "Смирнов, СДП УИР 241"
   },
   {
     "id": "l2-09-tab",
     "type": "ui_tab",
-    "name": "Smirnov — Lab 2",
+    "name": "Smirnov / СДП УИР 241 — Lab 2",
     "icon": "dashboard",
     "disabled": false,
     "hidden": false
@@ -50,7 +50,7 @@
     "crontab": "",
     "once": false,
     "onceDelay": 0.1,
-    "topic": "lab2/Smirnov/temperature",
+    "topic": "lab2/Smirnov/SDP-UIR-241/temperature",
     "payload": "",
     "payloadType": "date"
   },

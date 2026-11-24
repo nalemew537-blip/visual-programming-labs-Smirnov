@@ -2,9 +2,9 @@
   {
     "id": "lab2-tab-11",
     "type": "tab",
-    "label": "11 Smirnov — Files",
+    "label": "11 Smirnov / СДП УИР 241 — Files",
     "disabled": false,
-    "info": ""
+    "info": "Смирнов, СДП УИР 241"
   },
   {
     "id": "l2-11-write",
@@ -31,7 +31,7 @@
     "crontab": "",
     "once": false,
     "onceDelay": 0.1,
-    "topic": "lab2/Smirnov/file/write",
+    "topic": "lab2/Smirnov/SDP-UIR-241/file/write",
     "payload": "",
     "payloadType": "date"
   },
@@ -47,7 +47,7 @@
         "l2-11-file"
       ]
     ],
-    "func": "msg.payload=JSON.stringify({student:\"Smirnov\",timestamp:new Date().toISOString()});\nreturn msg;",
+    "func": "msg.payload=JSON.stringify({student:\"Smirnov\",group:\"СДП УИР 241\",timestamp:new Date().toISOString()});\nreturn msg;",
     "outputs": 1,
     "timeout": 0,
     "noerr": 0,
@@ -116,7 +116,7 @@
     "crontab": "",
     "once": false,
     "onceDelay": 0.1,
-    "topic": "lab2/Smirnov/file/read",
+    "topic": "lab2/Smirnov/SDP-UIR-241/file/read",
     "payload": "",
     "payloadType": "date"
   },

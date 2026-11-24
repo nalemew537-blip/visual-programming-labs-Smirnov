@@ -2,9 +2,9 @@
   {
     "id": "lab2-tab-10",
     "type": "tab",
-    "label": "10 Smirnov — Telegram bot",
+    "label": "10 Smirnov / СДП УИР 241 — Telegram bot",
     "disabled": false,
-    "info": ""
+    "info": "Смирнов, СДП УИР 241"
   },
   {
     "id": "l2-10-bot",
@@ -47,7 +47,7 @@
         "l2-10-tx"
       ]
     ],
-    "func": "const p=msg.payload;\nif (!p || p.type!==\"message\" || typeof p.content!==\"string\") return null;\nconst command=p.content.trim().split(/\\s+/)[0].split(\"@\")[0];\nlet reply;\nif(command===\"/start\") reply=\"Привет! Я бот Смирнова. Команда /info покажет информацию.\";\nelse if(command===\"/info\") reply=\"Лабораторная №2 — Node-RED. Smirnov.\";\nelse reply=\"Echo: \"+p.content;\nmsg.payload={chatId:p.chatId,type:\"message\",content:reply};\nreturn msg;",
+    "func": "const p=msg.payload;\nif (!p || p.type!==\"message\" || typeof p.content!==\"string\") return null;\nconst command=p.content.trim().split(/\\s+/)[0].split(\"@\")[0];\nlet reply;\nif(command===\"/start\") reply=\"Привет! Я бот Смирнова. Команда /info покажет информацию.\";\nelse if(command===\"/info\") reply=\"Лабораторная №2 — Node-RED. Smirnov, СДП УИР 241.\";\nelse reply=\"Echo: \"+p.content;\nmsg.payload={chatId:p.chatId,type:\"message\",content:reply};\nreturn msg;",
     "outputs": 1,
     "timeout": 0,
     "noerr": 0,

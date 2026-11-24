@@ -2,9 +2,9 @@
   {
     "id": "lab2-tab-12",
     "type": "tab",
-    "label": "12 Smirnov — Flow context",
+    "label": "12 Smirnov / СДП УИР 241 — Flow context",
     "disabled": false,
-    "info": ""
+    "info": "Смирнов, СДП УИР 241"
   },
   {
     "id": "l2-12-in",
@@ -31,7 +31,7 @@
     "crontab": "",
     "once": false,
     "onceDelay": 0.1,
-    "topic": "lab2/Smirnov/context",
+    "topic": "lab2/Smirnov/SDP-UIR-241/context",
     "payload": "1",
     "payloadType": "num"
   },
@@ -47,7 +47,7 @@
         "l2-12-out"
       ]
     ],
-    "func": "let count=flow.get(\"smirnovCounter\")||0;\ncount+=1;\nflow.set(\"smirnovCounter\",count);\nmsg.payload={student:\"Smirnov\",count};\nreturn msg;",
+    "func": "let count=flow.get(\"smirnovCounter\")||0;\ncount+=1;\nflow.set(\"smirnovCounter\",count);\nmsg.payload={student:\"Smirnov\",group:\"СДП УИР 241\",count};\nreturn msg;",
     "outputs": 1,
     "timeout": 0,
     "noerr": 0,

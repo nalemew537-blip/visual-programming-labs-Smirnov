@@ -2,15 +2,15 @@
   {
     "id": "lab2-tab-01",
     "type": "tab",
-    "label": "01 Smirnov — Inject / Debug",
+    "label": "01 Smirnov / СДП УИР 241 — Inject / Debug",
     "disabled": false,
-    "info": ""
+    "info": "Смирнов, СДП УИР 241"
   },
   {
     "id": "l2-01-in",
     "type": "inject",
     "z": "lab2-tab-01",
-    "name": "Smirnov / каждые 5 секунд",
+    "name": "Smirnov / СДП УИР 241 / каждые 5 секунд",
     "x": 190,
     "y": 100,
     "wires": [

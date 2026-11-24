@@ -2,9 +2,9 @@
   {
     "id": "lab2-tab-07",
     "type": "tab",
-    "label": "07 Smirnov — MQTT",
+    "label": "07 Smirnov / СДП УИР 241 — MQTT",
     "disabled": false,
-    "info": ""
+    "info": "Смирнов, СДП УИР 241"
   },
   {
     "id": "l2-07-broker",

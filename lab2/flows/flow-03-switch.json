@@ -2,9 +2,9 @@
   {
     "id": "lab2-tab-03",
     "type": "tab",
-    "label": "03 Smirnov — Switch",
+    "label": "03 Smirnov / СДП УИР 241 — Switch",
     "disabled": false,
-    "info": ""
+    "info": "Смирнов, СДП УИР 241"
   },
   {
     "id": "l2-03-a",
@@ -31,7 +31,7 @@
     "crontab": "",
     "once": false,
     "onceDelay": 0.1,
-    "topic": "lab2/Smirnov/switch",
+    "topic": "lab2/Smirnov/SDP-UIR-241/switch",
     "payload": "12",
     "payloadType": "num"
   },
@@ -60,7 +60,7 @@
     "crontab": "",
     "once": false,
     "onceDelay": 0.1,
-    "topic": "lab2/Smirnov/switch",
+    "topic": "lab2/Smirnov/SDP-UIR-241/switch",
     "payload": "4",
     "payloadType": "num"
   },
@@ -76,7 +76,7 @@
         "l2-03-sw"
       ]
     ],
-    "func": "const values = [2, 4, 6, 8];\nconst input = Number(msg.payload);\nlet sum = 0;\nfor (const value of values) { sum += value; }\nconst result = { student: \"Smirnov\", group: env.get(\"STUDENT_GROUP\") || \"not-set\", input, sum };\nif (input >= 10) { result.category = \"high\"; } else { result.category = \"low\"; }\nmsg.payload = result;\nreturn msg;\n",
+    "func": "const values = [2, 4, 6, 8];\nconst input = Number(msg.payload);\nlet sum = 0;\nfor (const value of values) { sum += value; }\nconst result = { student: \"Smirnov\", group: env.get(\"STUDENT_GROUP\") || \"СДП УИР 241\", input, sum };\nif (input >= 10) { result.category = \"high\"; } else { result.category = \"low\"; }\nmsg.payload = result;\nreturn msg;\n",
     "outputs": 1,
     "timeout": 0,
     "noerr": 0,

@@ -2,9 +2,9 @@
   {
     "id": "lab2-tab-02",
     "type": "tab",
-    "label": "02 Smirnov — Function",
+    "label": "02 Smirnov / СДП УИР 241 — Function",
     "disabled": false,
-    "info": ""
+    "info": "Смирнов, СДП УИР 241"
   },
   {
     "id": "l2-02-in",
@@ -31,7 +31,7 @@
     "crontab": "",
     "once": false,
     "onceDelay": 0.1,
-    "topic": "lab2/Smirnov/function",
+    "topic": "lab2/Smirnov/SDP-UIR-241/function",
     "payload": "12",
     "payloadType": "num"
   },
@@ -47,7 +47,7 @@
         "l2-02-out"
       ]
     ],
-    "func": "const values = [2, 4, 6, 8];\nconst input = Number(msg.payload);\nlet sum = 0;\nfor (const value of values) { sum += value; }\nconst result = { student: \"Smirnov\", group: env.get(\"STUDENT_GROUP\") || \"not-set\", input, sum };\nif (input >= 10) { result.category = \"high\"; } else { result.category = \"low\"; }\nmsg.payload = result;\nreturn msg;",
+    "func": "const values = [2, 4, 6, 8];\nconst input = Number(msg.payload);\nlet sum = 0;\nfor (const value of values) { sum += value; }\nconst result = { student: \"Smirnov\", group: env.get(\"STUDENT_GROUP\") || \"СДП УИР 241\", input, sum };\nif (input >= 10) { result.category = \"high\"; } else { result.category = \"low\"; }\nmsg.payload = result;\nreturn msg;",
     "outputs": 1,
     "timeout": 0,
     "noerr": 0,
