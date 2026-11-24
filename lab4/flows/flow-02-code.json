@@ -1,0 +1,71 @@
+{
+  "id": "lab4workflow0002",
+  "name": "02 Smirnov / СДП УИР 241 — Code",
+  "nodes": [
+    {
+      "id": "40000000-0000-4000-8000-000000000001",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "40000000-0000-4000-8000-000000000002",
+      "name": "Calculate",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const values = [2,4,6,8];\nlet sum=0;\nfor (const n of values) sum+=n;\nconst result={student:\"Smirnov\",group:\"СДП УИР 241\",sum};\nif(sum>=10){result.payload=\"high\";}else{result.payload=\"low\";}\nreturn [{json:result}];"
+      }
+    },
+    {
+      "id": "40000000-0000-4000-8000-000000000003",
+      "name": "NoOp",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        480,
+        0
+      ],
+      "parameters": {}
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Calculate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculate": {
+      "main": [
+        [
+          {
+            "node": "NoOp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Minsk"
+  },
+  "pinData": {}
+}
