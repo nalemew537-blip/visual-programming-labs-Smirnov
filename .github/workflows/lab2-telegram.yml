@@ -1,0 +1,60 @@
+name: Lab 2 - Telegram live test
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lab2-telegram.yml'
+      - 'lab2/check-telegram.cjs'
+permissions:
+  contents: write
+concurrency:
+  group: lab2-telegram
+  cancel-in-progress: false
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare bot securely
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          mkdir -p lab2/evidence
+          node lab2/check-telegram.cjs
+          sudo chown -R 1000:1000 lab2/data
+          docker pull nodered/node-red:latest
+          docker run --rm -v "$PWD/lab2/data:/data" --entrypoint npm nodered/node-red:latest install --prefix /data node-red-contrib-telegrambot
+          docker compose -f lab2/compose.yaml up -d
+          for i in $(seq 1 60); do
+            if curl -fsS http://localhost:1880/ >/dev/null 2>&1; then break; fi
+            sleep 2
+          done
+          curl -fsS http://localhost:1880/ >/dev/null
+          echo "Node-RED started; send /start, /info and a test message to the bot."
+      - name: Verify real messages
+        run: |
+          for i in $(seq 1 90); do
+            docker logs smirnov-node-red 2>&1 | grep -Eo 'LAB2_TELEGRAM_OK (start|info|echo)' | sort -u > /tmp/lab2-telegram-results.txt || true
+            if [ "$(wc -l < /tmp/lab2-telegram-results.txt)" -eq 3 ]; then break; fi
+            sleep 2
+          done
+          cp /tmp/lab2-telegram-results.txt lab2/evidence/telegram-messages.txt
+          cat lab2/evidence/telegram-messages.txt
+          if [ "$(wc -l < /tmp/lab2-telegram-results.txt)" -ne 3 ]; then
+            echo "Not all three real replies observed; see saved results."
+            exit 1
+          fi
+      - name: Stop test bot
+        if: always()
+        run: docker compose -f lab2/compose.yaml down || true
+      - name: Save only sanitized evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add lab2/evidence/telegram-*.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "Record Telegram API and live reply verification"
+            git push origin HEAD:main
+          fi
