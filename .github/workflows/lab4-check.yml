@@ -1,0 +1,56 @@
+name: Lab4 n8n runtime verification
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lab4-check.yml'
+      - 'lab4/check.cjs'
+permissions:
+  contents: write
+concurrency:
+  group: lab4-runtime
+  cancel-in-progress: false
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Start n8n and Redis
+        run: |
+          mkdir -p lab4/state lab4/data lab4/evidence lab4/screenshots
+          sudo chown -R 1000:1000 lab4/state lab4/data
+          docker compose -f lab4/compose.yaml up -d
+          for i in $(seq 1 90); do curl -fsS http://localhost:5678/healthz >/dev/null 2>&1 && break; sleep 2; done
+          curl -fsS http://localhost:5678/healthz
+          docker compose -f lab4/compose.yaml exec -T n8n n8n --version | tee lab4/evidence/n8n-version.txt
+          docker compose -f lab4/compose.yaml exec -T redis redis-cli INFO server | grep redis_version | tee lab4/evidence/redis-version.txt
+      - name: Install browser
+        run: |
+          npm install --prefix /tmp/lab4-browser playwright
+          /tmp/lab4-browser/node_modules/.bin/playwright install --with-deps chromium
+      - name: Create temporary owner import and run flows
+        run: NODE_PATH=/tmp/lab4-browser/node_modules node lab4/check.cjs
+      - name: Capture sanitized status
+        if: always()
+        run: |
+          mkdir -p lab4/evidence
+          docker compose -f lab4/compose.yaml ps >lab4/evidence/docker-ps.txt || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lab4-evidence
+          path: |
+            lab4/evidence
+            lab4/screenshots
+      - name: Commit evidence
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add lab4/evidence lab4/screenshots
+          if ! git diff --cached --quiet; then
+            git commit -m "Lab4: record genuine n8n runtime evidence"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
