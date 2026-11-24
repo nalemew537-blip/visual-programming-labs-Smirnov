@@ -1,0 +1,149 @@
+[
+  {
+    "id": "lab2-tab-09",
+    "type": "tab",
+    "label": "09 Smirnov — Dashboard",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "l2-09-tab",
+    "type": "ui_tab",
+    "name": "Smirnov — Lab 2",
+    "icon": "dashboard",
+    "disabled": false,
+    "hidden": false
+  },
+  {
+    "id": "l2-09-group",
+    "type": "ui_group",
+    "name": "Температура",
+    "tab": "l2-09-tab",
+    "order": 1,
+    "disp": true,
+    "width": "6",
+    "collapse": false,
+    "className": ""
+  },
+  {
+    "id": "l2-09-in",
+    "type": "inject",
+    "z": "lab2-tab-09",
+    "name": "Датчик / 5 секунд",
+    "x": 150,
+    "y": 100,
+    "wires": [
+      [
+        "l2-09-fn"
+      ]
+    ],
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "5",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "lab2/Smirnov/temperature",
+    "payload": "",
+    "payloadType": "date"
+  },
+  {
+    "id": "l2-09-fn",
+    "type": "function",
+    "z": "lab2-tab-09",
+    "name": "Температура 18–30 °C",
+    "x": 380,
+    "y": 100,
+    "wires": [
+      [
+        "l2-09-gauge",
+        "l2-09-chart"
+      ]
+    ],
+    "func": "msg.payload=18+Math.floor(Math.random()*13);\nmsg.topic=\"Температура\";\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "l2-09-gauge",
+    "type": "ui_gauge",
+    "z": "lab2-tab-09",
+    "name": "Температура сейчас",
+    "x": 620,
+    "y": 70,
+    "wires": [],
+    "group": "l2-09-group",
+    "order": 1,
+    "width": 6,
+    "height": 3,
+    "gtype": "gage",
+    "title": "Температура сейчас",
+    "label": "°C",
+    "format": "{{value}}",
+    "min": 0,
+    "max": 40,
+    "colors": [
+      "#00b500",
+      "#e6e600",
+      "#ca3838"
+    ],
+    "seg1": "25",
+    "seg2": "32",
+    "diff": false,
+    "className": ""
+  },
+  {
+    "id": "l2-09-chart",
+    "type": "ui_chart",
+    "z": "lab2-tab-09",
+    "name": "История температуры",
+    "x": 620,
+    "y": 150,
+    "wires": [
+      []
+    ],
+    "group": "l2-09-group",
+    "order": 2,
+    "width": 6,
+    "height": 4,
+    "label": "История температуры",
+    "chartType": "line",
+    "legend": "false",
+    "xformat": "HH:mm:ss",
+    "interpolate": "linear",
+    "nodata": "Ожидание данных",
+    "dot": false,
+    "ymin": "0",
+    "ymax": "40",
+    "removeOlder": 10,
+    "removeOlderPoints": "120",
+    "removeOlderUnit": "60",
+    "cutout": 0,
+    "useOneColor": false,
+    "useUTC": false,
+    "colors": [
+      "#1f77b4",
+      "#aec7e8",
+      "#ff7f0e",
+      "#2ca02c",
+      "#98df8a",
+      "#d62728",
+      "#ff9896",
+      "#9467bd",
+      "#c5b0d5"
+    ],
+    "outputs": 1,
+    "className": ""
+  }
+]

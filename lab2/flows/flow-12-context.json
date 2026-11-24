@@ -1,0 +1,75 @@
+[
+  {
+    "id": "lab2-tab-12",
+    "type": "tab",
+    "label": "12 Smirnov — Flow context",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "l2-12-in",
+    "type": "inject",
+    "z": "lab2-tab-12",
+    "name": "Увеличить счётчик",
+    "x": 160,
+    "y": 100,
+    "wires": [
+      [
+        "l2-12-fn"
+      ]
+    ],
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "lab2/Smirnov/context",
+    "payload": "1",
+    "payloadType": "num"
+  },
+  {
+    "id": "l2-12-fn",
+    "type": "function",
+    "z": "lab2-tab-12",
+    "name": "flow.get / flow.set",
+    "x": 380,
+    "y": 100,
+    "wires": [
+      [
+        "l2-12-out"
+      ]
+    ],
+    "func": "let count=flow.get(\"smirnovCounter\")||0;\ncount+=1;\nflow.set(\"smirnovCounter\",count);\nmsg.payload={student:\"Smirnov\",count};\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "l2-12-out",
+    "type": "debug",
+    "z": "lab2-tab-12",
+    "name": "Счётчик",
+    "x": 620,
+    "y": 100,
+    "wires": [],
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto"
+  }
+]

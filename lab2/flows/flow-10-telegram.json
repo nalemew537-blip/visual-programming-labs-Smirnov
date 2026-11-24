@@ -1,0 +1,90 @@
+[
+  {
+    "id": "lab2-tab-10",
+    "type": "tab",
+    "label": "10 Smirnov — Telegram bot",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "l2-10-bot",
+    "type": "telegram bot",
+    "botname": "tvl_lab2_smirnov_bot",
+    "usernames": "",
+    "chatids": "",
+    "baseapiurl": "",
+    "updatemode": "polling",
+    "pollinterval": "300",
+    "usesocks": false,
+    "verboselogging": false
+  },
+  {
+    "id": "l2-10-rx",
+    "type": "telegram receiver",
+    "z": "lab2-tab-10",
+    "name": "Входящие сообщения",
+    "x": 170,
+    "y": 100,
+    "wires": [
+      [
+        "l2-10-fn"
+      ],
+      []
+    ],
+    "bot": "l2-10-bot",
+    "saveDataDir": "",
+    "filterCommands": false
+  },
+  {
+    "id": "l2-10-fn",
+    "type": "function",
+    "z": "lab2-tab-10",
+    "name": "/start, /info, echo",
+    "x": 420,
+    "y": 100,
+    "wires": [
+      [
+        "l2-10-tx"
+      ]
+    ],
+    "func": "const p=msg.payload;\nif (!p || p.type!==\"message\" || typeof p.content!==\"string\") return null;\nconst command=p.content.trim().split(/\\s+/)[0].split(\"@\")[0];\nlet reply;\nif(command===\"/start\") reply=\"Привет! Я бот Смирнова. Команда /info покажет информацию.\";\nelse if(command===\"/info\") reply=\"Лабораторная №2 — Node-RED. Smirnov.\";\nelse reply=\"Echo: \"+p.content;\nmsg.payload={chatId:p.chatId,type:\"message\",content:reply};\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "l2-10-tx",
+    "type": "telegram sender",
+    "z": "lab2-tab-10",
+    "name": "Ответ в Telegram",
+    "x": 680,
+    "y": 100,
+    "wires": [
+      [
+        "l2-10-out"
+      ]
+    ],
+    "bot": "l2-10-bot",
+    "haserroroutput": false
+  },
+  {
+    "id": "l2-10-out",
+    "type": "debug",
+    "z": "lab2-tab-10",
+    "name": "Результат отправки",
+    "x": 900,
+    "y": 100,
+    "wires": [],
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto"
+  }
+]

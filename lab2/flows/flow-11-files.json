@@ -1,0 +1,160 @@
+[
+  {
+    "id": "lab2-tab-11",
+    "type": "tab",
+    "label": "11 Smirnov — Files",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "l2-11-write",
+    "type": "inject",
+    "z": "lab2-tab-11",
+    "name": "Записать данные",
+    "x": 160,
+    "y": 80,
+    "wires": [
+      [
+        "l2-11-fn"
+      ]
+    ],
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "lab2/Smirnov/file/write",
+    "payload": "",
+    "payloadType": "date"
+  },
+  {
+    "id": "l2-11-fn",
+    "type": "function",
+    "z": "lab2-tab-11",
+    "name": "JSON с датой",
+    "x": 370,
+    "y": 80,
+    "wires": [
+      [
+        "l2-11-file"
+      ]
+    ],
+    "func": "msg.payload=JSON.stringify({student:\"Smirnov\",timestamp:new Date().toISOString()});\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "l2-11-file",
+    "type": "file",
+    "z": "lab2-tab-11",
+    "name": "Запись в /data",
+    "x": 600,
+    "y": 80,
+    "wires": [
+      [
+        "l2-11-saved"
+      ]
+    ],
+    "filename": "/data/smirnov-lab2.json",
+    "filenameType": "str",
+    "appendNewline": true,
+    "createDir": true,
+    "overwriteFile": "true",
+    "encoding": "none"
+  },
+  {
+    "id": "l2-11-saved",
+    "type": "debug",
+    "z": "lab2-tab-11",
+    "name": "Запись завершена",
+    "x": 830,
+    "y": 80,
+    "wires": [],
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto"
+  },
+  {
+    "id": "l2-11-read",
+    "type": "inject",
+    "z": "lab2-tab-11",
+    "name": "Прочитать данные",
+    "x": 160,
+    "y": 180,
+    "wires": [
+      [
+        "l2-11-readfile"
+      ]
+    ],
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "lab2/Smirnov/file/read",
+    "payload": "",
+    "payloadType": "date"
+  },
+  {
+    "id": "l2-11-readfile",
+    "type": "file in",
+    "z": "lab2-tab-11",
+    "name": "Читать /data",
+    "x": 390,
+    "y": 180,
+    "wires": [
+      [
+        "l2-11-out"
+      ]
+    ],
+    "filename": "/data/smirnov-lab2.json",
+    "filenameType": "str",
+    "format": "utf8",
+    "chunk": false,
+    "sendError": false,
+    "encoding": "none",
+    "allProps": false
+  },
+  {
+    "id": "l2-11-out",
+    "type": "debug",
+    "z": "lab2-tab-11",
+    "name": "Содержимое файла",
+    "x": 650,
+    "y": 180,
+    "wires": [],
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto"
+  }
+]
