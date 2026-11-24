@@ -1,0 +1,11 @@
+services:
+  node-red:
+    image: nodered/node-red:latest
+    container_name: smirnov-node-red
+    ports:
+      - "127.0.0.1:1880:1880"
+    volumes:
+      - ./data:/data
+    environment:
+      STUDENT_GROUP: "${STUDENT_GROUP:-not-set}"
+    restart: unless-stopped

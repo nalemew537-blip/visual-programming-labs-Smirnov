@@ -1,0 +1,154 @@
+[
+  {
+    "id": "lab2-tab-03",
+    "type": "tab",
+    "label": "03 Smirnov — Switch",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "l2-03-a",
+    "type": "inject",
+    "z": "lab2-tab-03",
+    "name": "Число 12",
+    "x": 130,
+    "y": 80,
+    "wires": [
+      [
+        "l2-03-fn"
+      ]
+    ],
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "lab2/Smirnov/switch",
+    "payload": "12",
+    "payloadType": "num"
+  },
+  {
+    "id": "l2-03-b",
+    "type": "inject",
+    "z": "lab2-tab-03",
+    "name": "Число 4",
+    "x": 130,
+    "y": 140,
+    "wires": [
+      [
+        "l2-03-fn"
+      ]
+    ],
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "lab2/Smirnov/switch",
+    "payload": "4",
+    "payloadType": "num"
+  },
+  {
+    "id": "l2-03-fn",
+    "type": "function",
+    "z": "lab2-tab-03",
+    "name": "Категория числа",
+    "x": 350,
+    "y": 100,
+    "wires": [
+      [
+        "l2-03-sw"
+      ]
+    ],
+    "func": "const values = [2, 4, 6, 8];\nconst input = Number(msg.payload);\nlet sum = 0;\nfor (const value of values) { sum += value; }\nconst result = { student: \"Smirnov\", group: env.get(\"STUDENT_GROUP\") || \"not-set\", input, sum };\nif (input >= 10) { result.category = \"high\"; } else { result.category = \"low\"; }\nmsg.payload = result;\nreturn msg;\n",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "l2-03-sw",
+    "type": "switch",
+    "z": "lab2-tab-03",
+    "name": "high / low",
+    "x": 550,
+    "y": 100,
+    "wires": [
+      [
+        "l2-03-high"
+      ],
+      [
+        "l2-03-low"
+      ]
+    ],
+    "property": "payload.category",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "high",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "low",
+        "vt": "str"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2
+  },
+  {
+    "id": "l2-03-high",
+    "type": "debug",
+    "z": "lab2-tab-03",
+    "name": "high",
+    "x": 750,
+    "y": 70,
+    "wires": [],
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto"
+  },
+  {
+    "id": "l2-03-low",
+    "type": "debug",
+    "z": "lab2-tab-03",
+    "name": "low",
+    "x": 750,
+    "y": 140,
+    "wires": [],
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto"
+  }
+]

@@ -1,0 +1,55 @@
+[
+  {
+    "id": "lab2-tab-01",
+    "type": "tab",
+    "label": "01 Smirnov — Inject / Debug",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "l2-01-in",
+    "type": "inject",
+    "z": "lab2-tab-01",
+    "name": "Smirnov / каждые 5 секунд",
+    "x": 190,
+    "y": 100,
+    "wires": [
+      [
+        "l2-01-out"
+      ]
+    ],
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "5",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "lab2/Smirnov/basic",
+    "payload": "Smirnov",
+    "payloadType": "str"
+  },
+  {
+    "id": "l2-01-out",
+    "type": "debug",
+    "z": "lab2-tab-01",
+    "name": "Полное сообщение",
+    "x": 490,
+    "y": 100,
+    "wires": [],
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto"
+  }
+]

@@ -1,0 +1,96 @@
+[
+  {
+    "id": "lab2-tab-04",
+    "type": "tab",
+    "label": "04 Smirnov — Change",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "l2-04-in",
+    "type": "inject",
+    "z": "lab2-tab-04",
+    "name": "Исходное сообщение",
+    "x": 140,
+    "y": 100,
+    "wires": [
+      [
+        "l2-04-ch"
+      ]
+    ],
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "initial",
+    "payloadType": "str"
+  },
+  {
+    "id": "l2-04-ch",
+    "type": "change",
+    "z": "lab2-tab-04",
+    "name": "Установить 3 поля",
+    "x": 360,
+    "y": 100,
+    "wires": [
+      [
+        "l2-04-out"
+      ]
+    ],
+    "rules": [
+      {
+        "t": "set",
+        "p": "topic",
+        "pt": "msg",
+        "to": "lab2/Smirnov/change",
+        "tot": "str"
+      },
+      {
+        "t": "set",
+        "p": "timestamp",
+        "pt": "msg",
+        "to": "",
+        "tot": "date"
+      },
+      {
+        "t": "set",
+        "p": "payload",
+        "pt": "msg",
+        "to": "Smirnov: updated",
+        "tot": "str"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false
+  },
+  {
+    "id": "l2-04-out",
+    "type": "debug",
+    "z": "lab2-tab-04",
+    "name": "Все поля",
+    "x": 590,
+    "y": 100,
+    "wires": [],
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto"
+  }
+]

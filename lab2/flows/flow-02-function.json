@@ -1,0 +1,75 @@
+[
+  {
+    "id": "lab2-tab-02",
+    "type": "tab",
+    "label": "02 Smirnov — Function",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "l2-02-in",
+    "type": "inject",
+    "z": "lab2-tab-02",
+    "name": "Число 12",
+    "x": 130,
+    "y": 100,
+    "wires": [
+      [
+        "l2-02-fn"
+      ]
+    ],
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "lab2/Smirnov/function",
+    "payload": "12",
+    "payloadType": "num"
+  },
+  {
+    "id": "l2-02-fn",
+    "type": "function",
+    "z": "lab2-tab-02",
+    "name": "Сумма и категория",
+    "x": 360,
+    "y": 100,
+    "wires": [
+      [
+        "l2-02-out"
+      ]
+    ],
+    "func": "const values = [2, 4, 6, 8];\nconst input = Number(msg.payload);\nlet sum = 0;\nfor (const value of values) { sum += value; }\nconst result = { student: \"Smirnov\", group: env.get(\"STUDENT_GROUP\") || \"not-set\", input, sum };\nif (input >= 10) { result.category = \"high\"; } else { result.category = \"low\"; }\nmsg.payload = result;\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": []
+  },
+  {
+    "id": "l2-02-out",
+    "type": "debug",
+    "z": "lab2-tab-02",
+    "name": "Объект результата",
+    "x": 610,
+    "y": 100,
+    "wires": [],
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto"
+  }
+]
