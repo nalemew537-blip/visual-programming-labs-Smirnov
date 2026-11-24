@@ -95,6 +95,41 @@
           }
         },
         {
+          "id": "lab5-ask-name",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Как вас зовут?"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "lab5-name-input",
+          "type": "text input",
+          "options": {
+            "variableId": "lab5-name-variable-0001",
+            "labels": {
+              "placeholder": "Ваше имя",
+              "button": "Отправить"
+            }
+          }
+        },
+        {
+          "id": "lab5-set-group",
+          "type": "Set variable",
+          "options": {
+            "variableId": "lab5-group-variable-0001",
+            "expressionToEvaluate": "СДП УИР 241"
+          }
+        },
+        {
           "id": "cl96ntraa00083b6ij922v2qh",
           "outgoingEdgeId": "cl96nv51s000a3b6i3wmlcmdt",
           "type": "text",
@@ -104,7 +139,7 @@
                 "type": "p",
                 "children": [
                   {
-                    "text": "Я учебный бот Смирнова, СДП УИР 241."
+                    "text": "Приятно познакомиться, {{Имя}}! Я учебный бот Смирнова, {{Группа}}."
                   }
                 ]
               }
@@ -433,15 +468,37 @@
         },
         {
           "id": "cl96ogmjx001y3b6iwfosloet",
-          "outgoingEdgeId": "cl96ohn9900213b6ibex8g6my",
           "type": "text input",
           "options": {
             "labels": {
               "placeholder": "Введите вопрос…",
               "button": "Отправить"
             },
-            "isLong": true
+            "isLong": true,
+            "variableId": "lab5-question-var-0001"
           }
+        },
+        {
+          "id": "lab5-condition",
+          "type": "Condition",
+          "outgoingEdgeId": "cl96ohn9900213b6ibex8g6my",
+          "items": [
+            {
+              "id": "lab5-condition-yes",
+              "outgoingEdgeId": "lab5-condition-schedule-edge",
+              "content": {
+                "comparisons": [
+                  {
+                    "id": "lab5-condition-compare",
+                    "variableId": "lab5-question-var-0001",
+                    "comparisonOperator": "Equal to",
+                    "value": "расписание"
+                  }
+                ],
+                "logicalOperator": "AND"
+              }
+            }
+          ]
         }
       ]
     },
@@ -485,6 +542,48 @@
           "options": {
             "groupId": "cl96ns9qr00043b6ii07bo25o",
             "blockId": "cl96nv877000b3b6i7p69ss2o"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lab5-schedule-group",
+      "title": "Расписание",
+      "graphCoordinates": {
+        "x": 2200,
+        "y": 900
+      },
+      "blocks": [
+        {
+          "id": "lab5-schedule-text",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Для актуального расписания используйте официальный ресурс своего университета. Этот бот не подключён к расписанию."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "lab5-schedule-end",
+          "type": "text",
+          "content": {
+            "richText": [
+              {
+                "type": "p",
+                "children": [
+                  {
+                    "text": "Спасибо за обращение!"
+                  }
+                ]
+              }
+            ]
           }
         }
       ]
@@ -562,7 +661,7 @@
     {
       "id": "cl96ohn9900213b6ibex8g6my",
       "from": {
-        "blockId": "cl96ogmjx001y3b6iwfosloet"
+        "blockId": "lab5-condition"
       },
       "to": {
         "groupId": "cl96oh3mn001z3b6i2b0no81w"
@@ -577,9 +676,40 @@
       "to": {
         "groupId": "pqldfrkh43ncm39lzyeartv3"
       }
+    },
+    {
+      "id": "lab5-condition-schedule-edge",
+      "from": {
+        "blockId": "lab5-condition",
+        "itemId": "lab5-condition-yes"
+      },
+      "to": {
+        "groupId": "lab5-schedule-group"
+      }
     }
   ],
-  "variables": [],
+  "variables": [
+    {
+      "id": "lab5-name-variable-0001",
+      "name": "Имя",
+      "isSessionVariable": true
+    },
+    {
+      "id": "lab5-question-var-0001",
+      "name": "Вопрос",
+      "isSessionVariable": true
+    },
+    {
+      "id": "lab5-temp-variable-0001",
+      "name": "Температура",
+      "isSessionVariable": true
+    },
+    {
+      "id": "lab5-group-variable-0001",
+      "name": "Группа",
+      "isSessionVariable": true
+    }
+  ],
   "theme": {},
   "selectedThemeTemplateId": null,
   "settings": {},
