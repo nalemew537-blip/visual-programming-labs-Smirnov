@@ -1,0 +1,67 @@
+Сравнение коммитов GitHub: https://github.com/nalemew537-blip/visual-programming-labs-Smirnov/compare/3ee72e2ec7e5431844eff0868b334f250de175d8...7b2cb5789f55f6da04a476572666d8971da2ef15
+
+diff --git a/lab1/diagrams/process-bpmn.png b/lab1/diagrams/process-bpmn.png
+Бинарный файл изменён (GitHub API не возвращает текстовый patch).
+Новый SHA объекта: bb23dc95b541d691c327242363d188844de01fae
+
+diff --git a/lab1/diagrams/process.bpmn b/lab1/diagrams/process.bpmn
+--- a/lab1/diagrams/process.bpmn
++++ b/lab1/diagrams/process.bpmn
+@@ -50,10 +50,10 @@
+     </bpmn:parallelGateway>
+     <bpmn:task id="Finish" name="Завершить оформление">
+       <bpmn:incoming>Flow_Join_Finish</bpmn:incoming>
+-      <bpmn:outgoing>Flow_Finish_End</bpmn:outgoing>
++      <bpmn:outgoing>Flow_Finish_Log</bpmn:outgoing>
+     </bpmn:task>
+     <bpmn:endEvent id="End" name="Бронь оформлена">
+-      <bpmn:incoming>Flow_Finish_End</bpmn:incoming>
++      <bpmn:incoming>Flow_Log_End</bpmn:incoming>
+     </bpmn:endEvent>
+     <bpmn:task id="NoRoom" name="Сообщить: номера нет">
+       <bpmn:incoming>Flow_G1_NoRoom</bpmn:incoming>
+@@ -69,6 +69,10 @@
+     <bpmn:endEvent id="EndNoPay" name="Отказ в оплате">
+       <bpmn:incoming>Flow_NoPay_EndNoPay</bpmn:incoming>
+     </bpmn:endEvent>
++    <bpmn:task id="Log" name="Записать в журнал">
++      <bpmn:incoming>Flow_Finish_Log</bpmn:incoming>
++      <bpmn:outgoing>Flow_Log_End</bpmn:outgoing>
++    </bpmn:task>
+     <bpmn:sequenceFlow id="Flow_Start_Request" sourceRef="Start" targetRef="Request"/>
+     <bpmn:sequenceFlow id="Flow_Request_Dates" sourceRef="Request" targetRef="Dates"/>
+     <bpmn:sequenceFlow id="Flow_Dates_Available" sourceRef="Dates" targetRef="Available"/>
+@@ -85,7 +89,8 @@
+     <bpmn:sequenceFlow id="Flow_Room_Join" sourceRef="Room" targetRef="Join"/>
+     <bpmn:sequenceFlow id="Flow_Confirm_Join" sourceRef="Confirm" targetRef="Join"/>
+     <bpmn:sequenceFlow id="Flow_Join_Finish" sourceRef="Join" targetRef="Finish"/>
+-    <bpmn:sequenceFlow id="Flow_Finish_End" sourceRef="Finish" targetRef="End"/>
++    <bpmn:sequenceFlow id="Flow_Finish_Log" sourceRef="Finish" targetRef="Log"/>
++    <bpmn:sequenceFlow id="Flow_Log_End" sourceRef="Log" targetRef="End"/>
+   </bpmn:process>
+   <bpmndi:BPMNDiagram id="Diagram_Hotel">
+     <bpmndi:BPMNPlane id="Plane_Hotel" bpmnElement="Process_Hotel">
+@@ -158,6 +163,9 @@
+           <dc:Bounds x="1000" y="569" width="160" height="20"/>
+         </bpmndi:BPMNLabel>
+       </bpmndi:BPMNShape>
++      <bpmndi:BPMNShape id="Log_di" bpmnElement="Log">
++        <dc:Bounds x="1565" y="184" width="140" height="72"/>
++      </bpmndi:BPMNShape>
+       <bpmndi:BPMNEdge id="Flow_Start_Request_di" bpmnElement="Flow_Start_Request">
+         <di:waypoint x="73" y="220"/>
+         <di:waypoint x="130" y="220"/>
+@@ -238,8 +246,12 @@
+         <di:waypoint x="1365" y="220"/>
+         <di:waypoint x="1415" y="220"/>
+       </bpmndi:BPMNEdge>
+-      <bpmndi:BPMNEdge id="Flow_Finish_End_di" bpmnElement="Flow_Finish_End">
++      <bpmndi:BPMNEdge id="Flow_Finish_Log_di" bpmnElement="Flow_Finish_Log">
+         <di:waypoint x="1545" y="220"/>
++        <di:waypoint x="1565" y="220"/>
++      </bpmndi:BPMNEdge>
++      <bpmndi:BPMNEdge id="Flow_Log_End_di" bpmnElement="Flow_Log_End">
++        <di:waypoint x="1705" y="220"/>
+         <di:waypoint x="1762" y="220"/>
+       </bpmndi:BPMNEdge>
+     </bpmndi:BPMNPlane>
