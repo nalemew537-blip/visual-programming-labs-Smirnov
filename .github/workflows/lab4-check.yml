@@ -20,6 +20,7 @@ jobs:
         run: |
           mkdir -p lab4/state lab4/data lab4/evidence lab4/screenshots
           sudo chown -R 1000:1000 lab4/state lab4/data
+          sudo chmod 0777 lab4/data
           docker compose -f lab4/compose.yaml up -d
           for i in $(seq 1 90); do curl -fsS http://localhost:5678/healthz >/dev/null 2>&1 && break; sleep 2; done
           curl -fsS http://localhost:5678/healthz
