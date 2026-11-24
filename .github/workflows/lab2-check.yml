@@ -16,7 +16,7 @@ jobs:
       - name: Prepare Node-RED and install required nodes
         run: |
           mkdir -p lab2/data lab2/evidence
-          node -e 'const fs=require("fs");const a=fs.readdirSync("lab2/flows").filter(x=>x.endsWith(".json")).sort().flatMap(x=>JSON.parse(fs.readFileSync("lab2/flows/"+x)));fs.writeFileSync("lab2/data/flows.json",JSON.stringify(a))'
+          node -e 'const fs=require("fs");const a=fs.readdirSync("lab2/flows").filter(x=>x.endsWith(".json")).sort().flatMap(x=>JSON.parse(fs.readFileSync("lab2/flows/"+x)));for(const n of a)if(n.type==="debug")n.console=true;fs.writeFileSync("lab2/data/flows.json",JSON.stringify(a))'
           sudo chown -R 1000:1000 lab2/data
           docker pull nodered/node-red:latest
           docker run --rm -v "$PWD/lab2/data:/data" --entrypoint npm nodered/node-red:latest install --prefix /data node-red-dashboard node-red-contrib-telegrambot
@@ -31,6 +31,34 @@ jobs:
           npm install --prefix /tmp/lab2-browser playwright
           /tmp/lab2-browser/node_modules/.bin/playwright install --with-deps chromium
           NODE_PATH=/tmp/lab2-browser/node_modules node lab2/check-runtime.cjs
+      - name: Verify persistence across container restart
+        run: |
+          set -euo pipefail
+          {
+            echo "POST write inject"
+            curl -fsS -X POST http://localhost:1880/inject/l2-11-write
+            for i in $(seq 1 20); do
+              if docker exec smirnov-node-red test -s /data/smirnov-lab2.json; then break; fi
+              sleep 1
+            done
+            sleep 2
+            docker exec smirnov-node-red cat /data/smirnov-lab2.json > /tmp/lab2-before.json
+            echo "Before restart:"
+            cat /tmp/lab2-before.json
+            node -e 'const a=JSON.parse(require("fs").readFileSync("/tmp/lab2-before.json"));if(a.student!=="Smirnov"||!a.timestamp)process.exit(1)'
+            docker compose -f lab2/compose.yaml restart
+            for i in $(seq 1 60); do curl -fsS http://localhost:1880/ >/dev/null && break; sleep 2; done
+            curl -fsS http://localhost:1880/ >/dev/null
+            docker exec smirnov-node-red cat /data/smirnov-lab2.json > /tmp/lab2-after.json
+            echo "After restart:"
+            cat /tmp/lab2-after.json
+            cmp /tmp/lab2-before.json /tmp/lab2-after.json
+            echo "PASS: file content identical after restart"
+            curl -fsS -X POST http://localhost:1880/inject/l2-11-read
+            sleep 2
+            echo "PASS: read inject accepted"
+          } 2>&1 | tee lab2/evidence/persistence.txt
+          NODE_PATH=/tmp/lab2-browser/node_modules node lab2/check-persistence.cjs
       - name: Capture runtime logs
         if: always()
         run: |
