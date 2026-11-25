@@ -26,18 +26,25 @@ const flows=fs.readdirSync("lab4/flows").filter(x=>x.endsWith(".json")).sort().m
   for(const {file,w} of flows){
    const record={file,id:w.id};res.push(record);
    try{
-    // Execute imported workflow with n8n CLI, which actually runs the node engine.
-    const output=compose(["exec","-T","n8n","n8n","execute","--id="+w.id,"--rawOutput"]);
-    fs.writeFileSync(evidence+"/"+file.replace(".json",".txt"),output);
-    record.execution="CLI exited successfully";
+    await page.goto(base+"/workflow/"+w.id,{waitUntil:"domcontentloaded"});
+    const execute=page.getByRole("button",{name:/^Execute(?: workflow)?$/i}).last();
+    await execute.waitFor({timeout:30000});
+    await page.waitForTimeout(1200);
+    await execute.click();
+    await page.waitForTimeout(6500);
+    // Browser evidence and actual independent Redis assertions.
+    const statusText=(await page.locator("body").innerText()).slice(-12000);
+    record.editorUrl=page.url();
+    record.visibleStatus=statusText.split("\n").filter(x=>/execut|success|error|fail/i.test(x)).slice(-12);
+    await page.screenshot({path:shots+"/"+file.replace("flow-","").replace(".json",".png")});
     if(file.startsWith("flow-09")){record.redisGet=compose(["exec","-T","redis","redis-cli","GET","smirnov"]).trim();if(record.redisGet!=="Smirnov / СДП УИР 241")throw Error("Redis GET mismatch");}
     if(file.startsWith("flow-10")){record.redisExists=compose(["exec","-T","redis","redis-cli","EXISTS","smirnov"]).trim();if(record.redisExists!=="0")throw Error("Redis key still exists");}
-   }catch(e){record.error=String(e.message).slice(0,2500);}
-   try{
-    await page.goto(base+"/workflow/"+w.id,{waitUntil:"domcontentloaded"});await page.waitForTimeout(2000);
-    await page.screenshot({path:shots+"/"+file.replace("flow-","").replace(".json",".png")});
-    record.editorUrl=page.url();
-   }catch(e){record.screenshotError=String(e.message).slice(0,300);}
+    // Fetch actual stored execution summaries where the editor API exposes them.
+    const q=new URLSearchParams({filter:JSON.stringify({workflowId:w.id}),limit:"5"});
+    const ex=await page.request.get(base+"/rest/executions?"+q);
+    if(ex.ok()){const x=await ex.json();const rows=x.data?.results||x.data?.data||x.data||x.results||[];if(Array.isArray(rows)){record.executions=rows.map(z=>({id:z.id,status:z.status,finished:z.finished,workflowId:z.workflowId}));}}
+   }catch(e){record.error=String(e.message).slice(0,500);}
+
   }
   // Export roundtrip, so the actual n8n format is available separately.
   compose(["exec","-T","n8n","n8n","export:workflow","--all","--pretty","--output=/data/n8n-export.json"]);

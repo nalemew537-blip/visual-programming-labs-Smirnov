@@ -6,4 +6,4 @@ Redis 7, порт 6379. В сети Docker Compose адрес сервиса `re
 
 Источник параметров: https://github.com/n8n-io/n8n/blob/master/packages/nodes-base/nodes/Redis/Redis.node.ts
 
-Результаты запуска пока не подтверждены.
+Docker Redis 7.4.12 запущен. Импорт workflow подтверждён; запись, чтение и удаление ключа пока не подтверждены отдельным тестом.
