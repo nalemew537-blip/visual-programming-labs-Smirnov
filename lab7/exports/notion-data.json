@@ -1,0 +1,300 @@
+{
+  "main": "https://app.notion.com/p/4230557d7b6a81da82f2eb18c5e9b2e9",
+  "printers": [
+    {
+      "Код": "P09",
+      "Технология": "FDM",
+      "Состояние": "Обслуживание",
+      "Поле печати, мм": 220,
+      "Название": "Sovol SV06",
+      "url": "https://app.notion.com/p/4230557d7b6a81049f9edef58a7625f2"
+    },
+    {
+      "Код": "P01",
+      "Технология": "FDM",
+      "Состояние": "Готов",
+      "Поле печати, мм": 250,
+      "Название": "Prusa MK4",
+      "url": "https://app.notion.com/p/4230557d7b6a810888fdedf131a266e1"
+    },
+    {
+      "Код": "P03",
+      "Технология": "FDM",
+      "Состояние": "Готов",
+      "Поле печати, мм": 220,
+      "Название": "Creality Ender-3 V3",
+      "url": "https://app.notion.com/p/4230557d7b6a81428ffae3a8bf036232"
+    },
+    {
+      "Код": "P05",
+      "Технология": "FDM",
+      "Состояние": "Обслуживание",
+      "Поле печати, мм": 180,
+      "Название": "Prusa MINI+",
+      "url": "https://app.notion.com/p/4230557d7b6a814a9a08d3f3e99fa2c2"
+    },
+    {
+      "Код": "P02",
+      "Технология": "FDM",
+      "Состояние": "Готов",
+      "Поле печати, мм": 256,
+      "Название": "Bambu Lab A1",
+      "url": "https://app.notion.com/p/4230557d7b6a814d8469de13b7b1fc13"
+    },
+    {
+      "Код": "P06",
+      "Технология": "FDM",
+      "Состояние": "Готов",
+      "Поле печати, мм": 256,
+      "Название": "Bambu Lab P1S",
+      "url": "https://app.notion.com/p/4230557d7b6a81628210d928fea140be"
+    },
+    {
+      "Код": "P04",
+      "Технология": "FDM",
+      "Состояние": "Готов",
+      "Поле печати, мм": 220,
+      "Название": "Anycubic Kobra 2",
+      "url": "https://app.notion.com/p/4230557d7b6a81879681f8c23cee8a98"
+    },
+    {
+      "Код": "P10",
+      "Технология": "FDM",
+      "Состояние": "Готов",
+      "Поле печати, мм": 250,
+      "Название": "Anycubic Kobra 3",
+      "url": "https://app.notion.com/p/4230557d7b6a8198982ec9cdad312171"
+    },
+    {
+      "Код": "P07",
+      "Технология": "FDM",
+      "Состояние": "Готов",
+      "Поле печати, мм": 225,
+      "Название": "Elegoo Neptune 4",
+      "url": "https://app.notion.com/p/4230557d7b6a81a1ab7acfd02aff02f4"
+    },
+    {
+      "Код": "P08",
+      "Технология": "FDM",
+      "Состояние": "Готов",
+      "Поле печати, мм": 220,
+      "Название": "Creality K1",
+      "url": "https://app.notion.com/p/4230557d7b6a81d8a892d8d2da274a14"
+    }
+  ],
+  "materials": [
+    {
+      "Тип": "PLA",
+      "Код": "M01",
+      "Цена за грамм, BYN": 0.06,
+      "Название": "PLA белый",
+      "url": "https://app.notion.com/p/4230557d7b6a81129f04ebc79e825035"
+    },
+    {
+      "Тип": "ASA",
+      "Код": "M09",
+      "Цена за грамм, BYN": 0.11,
+      "Название": "ASA серый",
+      "url": "https://app.notion.com/p/4230557d7b6a8152bd60d8549b14f6bb"
+    },
+    {
+      "Тип": "PETG",
+      "Код": "M05",
+      "Цена за грамм, BYN": 0.08,
+      "Название": "PETG серый",
+      "url": "https://app.notion.com/p/4230557d7b6a816e865dd03cc089b036"
+    },
+    {
+      "Тип": "PLA",
+      "Код": "M03",
+      "Цена за грамм, BYN": 0.07,
+      "Название": "PLA синий",
+      "url": "https://app.notion.com/p/4230557d7b6a816f869dcbec62e92d03"
+    },
+    {
+      "Тип": "PLA",
+      "Код": "M07",
+      "Цена за грамм, BYN": 0.07,
+      "Название": "PLA зелёный",
+      "url": "https://app.notion.com/p/4230557d7b6a81a79236c056420d8fa1"
+    },
+    {
+      "Тип": "TPU",
+      "Код": "M06",
+      "Цена за грамм, BYN": 0.12,
+      "Название": "TPU чёрный",
+      "url": "https://app.notion.com/p/4230557d7b6a81a98421f42c91d15fb9"
+    },
+    {
+      "Тип": "PLA",
+      "Код": "M10",
+      "Цена за грамм, BYN": 0.07,
+      "Название": "PLA красный",
+      "url": "https://app.notion.com/p/4230557d7b6a81bba780f7aa413723d4"
+    },
+    {
+      "Тип": "PLA",
+      "Код": "M02",
+      "Цена за грамм, BYN": 0.06,
+      "Название": "PLA чёрный",
+      "url": "https://app.notion.com/p/4230557d7b6a81c0b214eca8aa207c65"
+    },
+    {
+      "Тип": "ABS",
+      "Код": "M08",
+      "Цена за грамм, BYN": 0.09,
+      "Название": "ABS белый",
+      "url": "https://app.notion.com/p/4230557d7b6a81c7919dd06f0c8bc904"
+    },
+    {
+      "Тип": "PETG",
+      "Код": "M04",
+      "Цена за грамм, BYN": 0.08,
+      "Название": "PETG прозрачный",
+      "url": "https://app.notion.com/p/4230557d7b6a81cbb82dccc188fa48d8"
+    }
+  ],
+  "jobs": [
+    {
+      "Статус": "Запланировано",
+      "Код": "J05",
+      "Принтер": "[\"https://app.notion.com/p/4230557d7b6a81628210d928fea140be\"]",
+      "date:Дата:start": "2026-11-30",
+      "date:Дата:is_datetime": 0,
+      "Цена за грамм, BYN": 0.12,
+      "Стоимость, BYN": "formulaResult://4230557d-7b6a-81e8-aa25-000bfd073611/4230557d-7b6a-810c-a9db-dc6a15e22cad/d3BJTA",
+      "Материал": "[\"https://app.notion.com/p/4230557d7b6a81a98421f42c91d15fb9\"]",
+      "Масса, г": 15,
+      "Название": "Защитный колпачок",
+      "url": "https://app.notion.com/p/4230557d7b6a810ca9dbdc6a15e22cad",
+      "expectedCost": 1.8
+    },
+    {
+      "Статус": "Запланировано",
+      "Код": "J01",
+      "Принтер": "[\"https://app.notion.com/p/4230557d7b6a810888fdedf131a266e1\"]",
+      "date:Дата:start": "2026-11-26",
+      "date:Дата:is_datetime": 0,
+      "Цена за грамм, BYN": 0.06,
+      "Стоимость, BYN": "formulaResult://4230557d-7b6a-81e8-aa25-000bfd073611/4230557d-7b6a-811a-8486-cb89d124aee3/d3BJTA",
+      "Материал": "[\"https://app.notion.com/p/4230557d7b6a81129f04ebc79e825035\"]",
+      "Масса, г": 18,
+      "Название": "Держатель кабеля",
+      "url": "https://app.notion.com/p/4230557d7b6a811a8486cb89d124aee3",
+      "expectedCost": 1.08
+    },
+    {
+      "Статус": "Готово",
+      "Код": "J04",
+      "Принтер": "[\"https://app.notion.com/p/4230557d7b6a81879681f8c23cee8a98\"]",
+      "date:Дата:start": "2026-11-29",
+      "date:Дата:is_datetime": 0,
+      "Цена за грамм, BYN": 0.07,
+      "Стоимость, BYN": "formulaResult://4230557d-7b6a-81e8-aa25-000bfd073611/4230557d-7b6a-811f-8d9d-e85f1d0042ed/d3BJTA",
+      "Материал": "[\"https://app.notion.com/p/4230557d7b6a816f869dcbec62e92d03\"]",
+      "Масса, г": 24,
+      "Название": "Шаблон отверстий",
+      "url": "https://app.notion.com/p/4230557d7b6a811f8d9de85f1d0042ed",
+      "expectedCost": 1.68
+    },
+    {
+      "Статус": "Запланировано",
+      "Код": "J09",
+      "Принтер": "[\"https://app.notion.com/p/4230557d7b6a81628210d928fea140be\"]",
+      "date:Дата:start": "2026-12-04",
+      "date:Дата:is_datetime": 0,
+      "Цена за грамм, BYN": 0.11,
+      "Стоимость, BYN": "formulaResult://4230557d-7b6a-81e8-aa25-000bfd073611/4230557d-7b6a-8126-90c9-db63ea96fbcb/d3BJTA",
+      "Материал": "[\"https://app.notion.com/p/4230557d7b6a8152bd60d8549b14f6bb\"]",
+      "Масса, г": 43,
+      "Название": "Защитная крышка",
+      "url": "https://app.notion.com/p/4230557d7b6a812690c9db63ea96fbcb",
+      "expectedCost": 4.73
+    },
+    {
+      "Статус": "Готово",
+      "Код": "J08",
+      "Принтер": "[\"https://app.notion.com/p/4230557d7b6a8198982ec9cdad312171\"]",
+      "date:Дата:start": "2026-12-03",
+      "date:Дата:is_datetime": 0,
+      "Цена за грамм, BYN": 0.07,
+      "Стоимость, BYN": "formulaResult://4230557d-7b6a-81e8-aa25-000bfd073611/4230557d-7b6a-812b-812a-fcfbe3b7bc17/d3BJTA",
+      "Материал": "[\"https://app.notion.com/p/4230557d7b6a81bba780f7aa413723d4\"]",
+      "Масса, г": 12,
+      "Название": "Тестовая пластина",
+      "url": "https://app.notion.com/p/4230557d7b6a812b812afcfbe3b7bc17",
+      "expectedCost": 0.84
+    },
+    {
+      "Статус": "Запланировано",
+      "Код": "J07",
+      "Принтер": "[\"https://app.notion.com/p/4230557d7b6a81d8a892d8d2da274a14\"]",
+      "date:Дата:start": "2026-12-02",
+      "date:Дата:is_datetime": 0,
+      "Цена за грамм, BYN": 0.09,
+      "Стоимость, BYN": "formulaResult://4230557d-7b6a-81e8-aa25-000bfd073611/4230557d-7b6a-8132-b48c-e95b44427c81/d3BJTA",
+      "Материал": "[\"https://app.notion.com/p/4230557d7b6a81c7919dd06f0c8bc904\"]",
+      "Масса, г": 58,
+      "Название": "Монтажный кронштейн",
+      "url": "https://app.notion.com/p/4230557d7b6a8132b48ce95b44427c81",
+      "expectedCost": 5.22
+    },
+    {
+      "Статус": "Готово",
+      "Код": "J10",
+      "Принтер": "[\"https://app.notion.com/p/4230557d7b6a810888fdedf131a266e1\"]",
+      "date:Дата:start": "2026-12-05",
+      "date:Дата:is_datetime": 0,
+      "Цена за грамм, BYN": 0.08,
+      "Стоимость, BYN": "formulaResult://4230557d-7b6a-81e8-aa25-000bfd073611/4230557d-7b6a-8136-a068-eca1d612cebc/d3BJTA",
+      "Материал": "[\"https://app.notion.com/p/4230557d7b6a816e865dd03cc089b036\"]",
+      "Масса, г": 20,
+      "Название": "Втулка",
+      "url": "https://app.notion.com/p/4230557d7b6a8136a068eca1d612cebc",
+      "expectedCost": 1.6
+    },
+    {
+      "Статус": "В работе",
+      "Код": "J06",
+      "Принтер": "[\"https://app.notion.com/p/4230557d7b6a81a1ab7acfd02aff02f4\"]",
+      "date:Дата:start": "2026-12-01",
+      "date:Дата:is_datetime": 0,
+      "Цена за грамм, BYN": 0.07,
+      "Стоимость, BYN": "formulaResult://4230557d-7b6a-81e8-aa25-000bfd073611/4230557d-7b6a-818c-b3cd-f684723b8a95/d3BJTA",
+      "Материал": "[\"https://app.notion.com/p/4230557d7b6a81a79236c056420d8fa1\"]",
+      "Масса, г": 96,
+      "Название": "Органайзер винтов",
+      "url": "https://app.notion.com/p/4230557d7b6a818cb3cdf684723b8a95",
+      "expectedCost": 6.72
+    },
+    {
+      "Статус": "В работе",
+      "Код": "J02",
+      "Принтер": "[\"https://app.notion.com/p/4230557d7b6a814d8469de13b7b1fc13\"]",
+      "date:Дата:start": "2026-11-27",
+      "date:Дата:is_datetime": 0,
+      "Цена за грамм, BYN": 0.08,
+      "Стоимость, BYN": "formulaResult://4230557d-7b6a-81e8-aa25-000bfd073611/4230557d-7b6a-81d5-8b2d-e4823ea38ca8/d3BJTA",
+      "Материал": "[\"https://app.notion.com/p/4230557d7b6a81cbb82dccc188fa48d8\"]",
+      "Масса, г": 65,
+      "Название": "Корпус датчика",
+      "url": "https://app.notion.com/p/4230557d7b6a81d58b2de4823ea38ca8",
+      "expectedCost": 5.2
+    },
+    {
+      "Статус": "Запланировано",
+      "Код": "J03",
+      "Принтер": "[\"https://app.notion.com/p/4230557d7b6a81428ffae3a8bf036232\"]",
+      "date:Дата:start": "2026-11-28",
+      "date:Дата:is_datetime": 0,
+      "Цена за грамм, BYN": 0.06,
+      "Стоимость, BYN": "formulaResult://4230557d-7b6a-81e8-aa25-000bfd073611/4230557d-7b6a-81fa-8161-eb627bf46db3/d3BJTA",
+      "Материал": "[\"https://app.notion.com/p/4230557d7b6a81c0b214eca8aa207c65\"]",
+      "Масса, г": 72,
+      "Название": "Подставка телефона",
+      "url": "https://app.notion.com/p/4230557d7b6a81fa8161eb627bf46db3",
+      "expectedCost": 4.32
+    }
+  ],
+  "notes": "API readback; expectedCost independently computed, not native formula result"
+}
