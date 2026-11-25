@@ -7,7 +7,7 @@ const out="lab5/evidence",shots="lab5/screenshots";
  const p=await b.newPage({viewport:{width:1600,height:1000}});
  const result={};
  try{
-  await p.goto(base+"/signin",{waitUntil:"domcontentloaded"});
+  await p.goto(base+"/register",{waitUntil:"domcontentloaded"});
   await p.locator('input[type="email"]').waitFor({timeout:60000});
   await p.screenshot({path:shots+"/01-registration.png"});
   await p.locator('input[type="email"]').fill(email);
@@ -20,12 +20,20 @@ const out="lab5/evidence",shots="lab5/screenshots";
   }
   if(!m)throw Error("Local verification email not received");
   const body=String(m.Text||"")+" "+String(m.HTML||"");
-  const link=body.match(/https?:\/\/[^\s"'<>]+(?:callback\/nodemailer|signin\/email-redirect)[^\s"'<>]+/i)?.[0]?.replaceAll("&amp;","&");
-  const token=body.match(/\b[0-9]{6}\b/)?.[0];
-  if(link&&new URL(link).hostname==="localhost"){await p.goto(link);}else if(token){const u=new URL(base+"/api/auth/callback/nodemailer");u.searchParams.set("token",token);u.searchParams.set("email",email);u.searchParams.set("callbackUrl",base+"/typebots");await p.goto(u.toString());}else throw Error("Verification message format not recognized");
+  const links=body.replaceAll("&amp;","&").match(/https?:\/\/[^\s"'<>]+/g)||[];
+  let token;
+  for(const l of links){try{const u=new URL(l);const t=u.searchParams.get("token");if(t&&/^\d{6}$/.test(t)){token=t;break;}}catch{}}
+  if(!token)token=String(m.Text||"").match(/\b\d{6}\b/)?.[0];
+  if(!token)throw Error("Verification code not recognized");
+  const otp=p.locator('input[autocomplete="one-time-code"], input[data-input-otp]').first();
+  if(await otp.isVisible().catch(()=>false)){await otp.fill(token);}else{const u=new URL(base+"/api/auth/callback/nodemailer");u.searchParams.set("token",token);u.searchParams.set("email",email);u.searchParams.set("callbackUrl",base+"/typebots");await p.goto(u.toString());}
+  await p.waitForTimeout(2500);
+  const session=await p.request.get(base+"/api/auth/session");
+  const sd=await session.json().catch(()=>({}));
+  result.sessionAuthenticated=Boolean(sd.user);
   await p.waitForTimeout(3000);
   await p.goto(base+"/typebots",{waitUntil:"domcontentloaded"});await p.waitForTimeout(2500);
-  if(p.url().includes("signin"))throw Error("Login failed");
+  if(p.url().includes("signin")||p.url().includes("register"))throw Error("Registration/login did not complete");
   result.login="authenticated local owner";
   // Handle an optional first-use workspace prompt if present.
   const ws=p.getByRole("textbox",{name:/workspace/i}).first();
