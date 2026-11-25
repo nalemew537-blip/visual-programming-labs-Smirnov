@@ -20,9 +20,9 @@ const out="lab5/evidence",shots="lab5/screenshots";
   }
   if(!m)throw Error("Local verification email not received");
   const body=String(m.Text||"")+" "+String(m.HTML||"");
-  const links=body.replaceAll("&amp;","&").match(/https?:\/\/[^\s"'<>]+/g)||[];
+  const mailLinks=body.replaceAll("&amp;","&").match(/https?:\/\/[^\s"'<>]+/g)||[];
   let token;
-  for(const l of links){try{const u=new URL(l);const t=u.searchParams.get("token");if(t&&/^\d{6}$/.test(t)){token=t;break;}}catch{}}
+  for(const l of mailLinks){try{const u=new URL(l);const t=u.searchParams.get("token");if(t&&/^\d{6}$/.test(t)){token=t;break;}}catch{}}
   if(!token)token=String(m.Text||"").match(/\b\d{6}\b/)?.[0];
   if(!token)throw Error("Verification code not recognized");
   const otp=p.locator('input[autocomplete="one-time-code"], input[data-input-otp]').first();
