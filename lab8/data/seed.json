@@ -1,0 +1,248 @@
+{
+  "studios": [
+    {
+      "id": 1,
+      "name": "Павильон А",
+      "capacity": 8,
+      "available": true,
+      "location": "Корпус А"
+    },
+    {
+      "id": 2,
+      "name": "Павильон Б",
+      "capacity": 6,
+      "available": true,
+      "location": "Корпус Б"
+    },
+    {
+      "id": 3,
+      "name": "Монтажная 1",
+      "capacity": 3,
+      "available": true,
+      "location": "Корпус В"
+    },
+    {
+      "id": 4,
+      "name": "Монтажная 2",
+      "capacity": 4,
+      "available": true,
+      "location": "Корпус А"
+    },
+    {
+      "id": 5,
+      "name": "Студия звука",
+      "capacity": 3,
+      "available": true,
+      "location": "Корпус Б"
+    },
+    {
+      "id": 6,
+      "name": "Фотозона",
+      "capacity": 5,
+      "available": true,
+      "location": "Корпус В"
+    },
+    {
+      "id": 7,
+      "name": "Зал интервью",
+      "capacity": 6,
+      "available": true,
+      "location": "Корпус А"
+    },
+    {
+      "id": 8,
+      "name": "Малая студия",
+      "capacity": 4,
+      "available": true,
+      "location": "Корпус Б"
+    },
+    {
+      "id": 9,
+      "name": "Мобильный комплект",
+      "capacity": 2,
+      "available": false,
+      "location": "Корпус В"
+    },
+    {
+      "id": 10,
+      "name": "Лаборатория света",
+      "capacity": 5,
+      "available": true,
+      "location": "Корпус А"
+    }
+  ],
+  "equipment": [
+    {
+      "id": 1,
+      "name": "Камера Sony A6400",
+      "category": "camera",
+      "hourly_rate": 12.5,
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "Микрофон Rode NT1",
+      "category": "audio",
+      "hourly_rate": 5,
+      "available": true
+    },
+    {
+      "id": 3,
+      "name": "Штатив Manfrotto",
+      "category": "support",
+      "hourly_rate": 3.5,
+      "available": true
+    },
+    {
+      "id": 4,
+      "name": "Свет Godox SL60",
+      "category": "light",
+      "hourly_rate": 6.5,
+      "available": true
+    },
+    {
+      "id": 5,
+      "name": "Рекордер Zoom H5",
+      "category": "audio",
+      "hourly_rate": 7.5,
+      "available": true
+    },
+    {
+      "id": 6,
+      "name": "Объектив 35 мм",
+      "category": "camera",
+      "hourly_rate": 8,
+      "available": true
+    },
+    {
+      "id": 7,
+      "name": "Петличка Boya",
+      "category": "audio",
+      "hourly_rate": 3,
+      "available": true
+    },
+    {
+      "id": 8,
+      "name": "Софтбокс 60×90",
+      "category": "light",
+      "hourly_rate": 4,
+      "available": true
+    },
+    {
+      "id": 9,
+      "name": "Фон белый",
+      "category": "support",
+      "hourly_rate": 2,
+      "available": false
+    },
+    {
+      "id": 10,
+      "name": "Наушники ATH-M40x",
+      "category": "audio",
+      "hourly_rate": 3.5,
+      "available": true
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1,
+      "title": "Интервью для студсовета",
+      "studio_id": 1,
+      "equipment_id": 1,
+      "start_at": 1795683600000,
+      "duration_hours": 2,
+      "status": "planned",
+      "paid": false
+    },
+    {
+      "id": 2,
+      "title": "Запись подкаста",
+      "studio_id": 2,
+      "equipment_id": 2,
+      "start_at": 1795773600000,
+      "duration_hours": 1,
+      "status": "confirmed",
+      "paid": false
+    },
+    {
+      "id": 3,
+      "title": "Съёмка ролика",
+      "studio_id": 3,
+      "equipment_id": 3,
+      "start_at": 1795863600000,
+      "duration_hours": 3,
+      "status": "completed",
+      "paid": true
+    },
+    {
+      "id": 4,
+      "title": "Портретная серия",
+      "studio_id": 4,
+      "equipment_id": 4,
+      "start_at": 1795953600000,
+      "duration_hours": 2,
+      "status": "planned",
+      "paid": false
+    },
+    {
+      "id": 5,
+      "title": "Запись голоса",
+      "studio_id": 5,
+      "equipment_id": 5,
+      "start_at": 1796029200000,
+      "duration_hours": 1,
+      "status": "confirmed",
+      "paid": false
+    },
+    {
+      "id": 6,
+      "title": "Видео для практики",
+      "studio_id": 6,
+      "equipment_id": 6,
+      "start_at": 1796119200000,
+      "duration_hours": 4,
+      "status": "completed",
+      "paid": true
+    },
+    {
+      "id": 7,
+      "title": "Тест микрофона",
+      "studio_id": 7,
+      "equipment_id": 7,
+      "start_at": 1796209200000,
+      "duration_hours": 1,
+      "status": "planned",
+      "paid": false
+    },
+    {
+      "id": 8,
+      "title": "Учебная съёмка",
+      "studio_id": 8,
+      "equipment_id": 8,
+      "start_at": 1796299200000,
+      "duration_hours": 2,
+      "status": "confirmed",
+      "paid": false
+    },
+    {
+      "id": 9,
+      "title": "Съёмка предметов",
+      "studio_id": 9,
+      "equipment_id": 9,
+      "start_at": 1796374800000,
+      "duration_hours": 3,
+      "status": "completed",
+      "paid": true
+    },
+    {
+      "id": 10,
+      "title": "Монтаж звука",
+      "studio_id": 10,
+      "equipment_id": 10,
+      "start_at": 1796464800000,
+      "duration_hours": 2,
+      "status": "planned",
+      "paid": false
+    }
+  ]
+}
