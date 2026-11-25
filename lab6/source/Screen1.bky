@@ -1,0 +1,43 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="component_event" id="hello_event" x="36" y="36">
+    <mutation component_type="Button" is_generic="false" instance_name="SmirnovHello" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">SmirnovHello</field>
+    <statement name="DO">
+      <block type="controls_if" id="check_name">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="text_isempty" id="empty">
+            <value name="VALUE">
+              <block type="component_set_get" id="get_name">
+                <mutation component_type="TextBox" set_or_get="get" property_name="Text" is_generic="false" instance_name="SmirnovName"></mutation>
+                <field name="COMPONENT_SELECTOR">SmirnovName</field><field name="PROP">Text</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="component_set_get" id="empty_message">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="SmirnovResult"></mutation>
+            <field name="COMPONENT_SELECTOR">SmirnovResult</field><field name="PROP">Text</field>
+            <value name="VALUE"><block type="text" id="error_text"><field name="TEXT">Введите имя!</field></block></value>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="component_set_get" id="greeting_message">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="SmirnovResult"></mutation>
+            <field name="COMPONENT_SELECTOR">SmirnovResult</field><field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="text_join" id="greeting_join">
+                <mutation items="3"></mutation>
+                <value name="ADD0"><block type="text" id="prefix"><field name="TEXT">Привет, </field></block></value>
+                <value name="ADD1"><block type="component_set_get" id="name_value"><mutation component_type="TextBox" set_or_get="get" property_name="Text" is_generic="false" instance_name="SmirnovName"></mutation><field name="COMPONENT_SELECTOR">SmirnovName</field><field name="PROP">Text</field></block></value>
+                <value name="ADD2"><block type="text" id="suffix"><field name="TEXT">!</field></block></value>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <yacodeblocks ya-version="232" language-version="36"></yacodeblocks>
+</xml>
