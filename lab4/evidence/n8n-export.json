@@ -1,7 +1,7 @@
 [
   {
-    "updatedAt": "2026-11-24T23:56:52.373Z",
-    "createdAt": "2026-11-24T23:56:52.373Z",
+    "updatedAt": "2026-11-25T00:09:46.577Z",
+    "createdAt": "2026-11-25T00:09:46.577Z",
     "id": "lab4workflow0001",
     "name": "01 Smirnov / СДП УИР 241 — Manual / Set / Code",
     "description": null,
@@ -100,7 +100,7 @@
     "meta": null,
     "nodeGroups": [],
     "pinData": {},
-    "versionId": "ecd573d2-fcdf-4016-ac04-e277547f1f76",
+    "versionId": "ac0eaf6a-14fa-4575-9161-e51814f21512",
     "activeVersionId": null,
     "versionCounter": 1,
     "triggerCount": 0,
@@ -108,21 +108,21 @@
     "tags": [],
     "shared": [
       {
-        "updatedAt": "2026-11-24T23:56:52.376Z",
-        "createdAt": "2026-11-24T23:56:52.376Z",
+        "updatedAt": "2026-11-25T00:09:46.579Z",
+        "createdAt": "2026-11-25T00:09:46.579Z",
         "role": "workflow:owner",
         "workflowId": "lab4workflow0001",
-        "projectId": "ZFeg9QvzXN5A0ky6",
+        "projectId": "X3tAsj7cD2ImrjQ2",
         "project": {
-          "updatedAt": "2026-11-24T23:56:45.465Z",
-          "createdAt": "2026-11-24T23:56:23.523Z",
-          "id": "ZFeg9QvzXN5A0ky6",
+          "updatedAt": "2026-11-25T00:09:41.613Z",
+          "createdAt": "2026-11-25T00:09:00.800Z",
+          "id": "X3tAsj7cD2ImrjQ2",
           "name": "Arseniy Smirnov <lab4-test@example.invalid>",
           "type": "personal",
           "icon": null,
           "description": null,
           "customTelemetryTags": [],
-          "creatorId": "7c5b9ed3-d5df-47b4-934e-385bfffd1264"
+          "creatorId": "eb9f45a1-396f-48dc-b77e-e2618c5c4fec"
         }
       }
     ],
@@ -132,8 +132,8 @@
     }
   },
   {
-    "updatedAt": "2026-11-24T23:56:52.377Z",
-    "createdAt": "2026-11-24T23:56:52.377Z",
+    "updatedAt": "2026-11-25T00:09:46.581Z",
+    "createdAt": "2026-11-25T00:09:46.581Z",
     "id": "lab4workflow0002",
     "name": "02 Smirnov / СДП УИР 241 — Code",
     "description": null,
@@ -208,7 +208,7 @@
     "meta": null,
     "nodeGroups": [],
     "pinData": {},
-    "versionId": "4c284985-dc58-4977-9c46-79821028b65d",
+    "versionId": "514b9673-e4b1-4c74-94af-62895cd94d9a",
     "activeVersionId": null,
     "versionCounter": 1,
     "triggerCount": 0,
@@ -216,21 +216,21 @@
     "tags": [],
     "shared": [
       {
-        "updatedAt": "2026-11-24T23:56:52.378Z",
-        "createdAt": "2026-11-24T23:56:52.378Z",
+        "updatedAt": "2026-11-25T00:09:46.582Z",
+        "createdAt": "2026-11-25T00:09:46.582Z",
         "role": "workflow:owner",
         "workflowId": "lab4workflow0002",
-        "projectId": "ZFeg9QvzXN5A0ky6",
+        "projectId": "X3tAsj7cD2ImrjQ2",
         "project": {
-          "updatedAt": "2026-11-24T23:56:45.465Z",
-          "createdAt": "2026-11-24T23:56:23.523Z",
-          "id": "ZFeg9QvzXN5A0ky6",
+          "updatedAt": "2026-11-25T00:09:41.613Z",
+          "createdAt": "2026-11-25T00:09:00.800Z",
+          "id": "X3tAsj7cD2ImrjQ2",
           "name": "Arseniy Smirnov <lab4-test@example.invalid>",
           "type": "personal",
           "icon": null,
           "description": null,
           "customTelemetryTags": [],
-          "creatorId": "7c5b9ed3-d5df-47b4-934e-385bfffd1264"
+          "creatorId": "eb9f45a1-396f-48dc-b77e-e2618c5c4fec"
         }
       }
     ],
@@ -240,8 +240,8 @@
     }
   },
   {
-    "updatedAt": "2026-11-24T23:56:52.380Z",
-    "createdAt": "2026-11-24T23:56:52.380Z",
+    "updatedAt": "2026-11-25T00:09:46.583Z",
+    "createdAt": "2026-11-25T00:09:46.583Z",
     "id": "lab4workflow0003",
     "name": "03 Smirnov / СДП УИР 241 — IF",
     "description": null,
@@ -378,7 +378,7 @@
     "meta": null,
     "nodeGroups": [],
     "pinData": {},
-    "versionId": "c96856e9-61b9-4c88-ac41-c18e165926f6",
+    "versionId": "950c610c-ebfd-47b2-90e6-5523e9456e7c",
     "activeVersionId": null,
     "versionCounter": 1,
     "triggerCount": 0,
@@ -386,21 +386,21 @@
     "tags": [],
     "shared": [
       {
-        "updatedAt": "2026-11-24T23:56:52.381Z",
-        "createdAt": "2026-11-24T23:56:52.381Z",
+        "updatedAt": "2026-11-25T00:09:46.584Z",
+        "createdAt": "2026-11-25T00:09:46.584Z",
         "role": "workflow:owner",
         "workflowId": "lab4workflow0003",
-        "projectId": "ZFeg9QvzXN5A0ky6",
+        "projectId": "X3tAsj7cD2ImrjQ2",
         "project": {
-          "updatedAt": "2026-11-24T23:56:45.465Z",
-          "createdAt": "2026-11-24T23:56:23.523Z",
-          "id": "ZFeg9QvzXN5A0ky6",
+          "updatedAt": "2026-11-25T00:09:41.613Z",
+          "createdAt": "2026-11-25T00:09:00.800Z",
+          "id": "X3tAsj7cD2ImrjQ2",
           "name": "Arseniy Smirnov <lab4-test@example.invalid>",
           "type": "personal",
           "icon": null,
           "description": null,
           "customTelemetryTags": [],
-          "creatorId": "7c5b9ed3-d5df-47b4-934e-385bfffd1264"
+          "creatorId": "eb9f45a1-396f-48dc-b77e-e2618c5c4fec"
         }
       }
     ],
@@ -410,8 +410,8 @@
     }
   },
   {
-    "updatedAt": "2026-11-24T23:56:52.382Z",
-    "createdAt": "2026-11-24T23:56:52.382Z",
+    "updatedAt": "2026-11-25T00:09:46.585Z",
+    "createdAt": "2026-11-25T00:09:46.585Z",
     "id": "lab4workflow0004",
     "name": "04 Smirnov / СДП УИР 241 — Set fields",
     "description": null,
@@ -516,7 +516,7 @@
     "meta": null,
     "nodeGroups": [],
     "pinData": {},
-    "versionId": "e3cbd6f0-9c4d-4e27-9446-e60b85af90e1",
+    "versionId": "fb9d9996-2590-4c47-a82e-4175d74699a1",
     "activeVersionId": null,
     "versionCounter": 1,
     "triggerCount": 0,
@@ -524,21 +524,21 @@
     "tags": [],
     "shared": [
       {
-        "updatedAt": "2026-11-24T23:56:52.383Z",
-        "createdAt": "2026-11-24T23:56:52.383Z",
+        "updatedAt": "2026-11-25T00:09:46.586Z",
+        "createdAt": "2026-11-25T00:09:46.586Z",
         "role": "workflow:owner",
         "workflowId": "lab4workflow0004",
-        "projectId": "ZFeg9QvzXN5A0ky6",
+        "projectId": "X3tAsj7cD2ImrjQ2",
         "project": {
-          "updatedAt": "2026-11-24T23:56:45.465Z",
-          "createdAt": "2026-11-24T23:56:23.523Z",
-          "id": "ZFeg9QvzXN5A0ky6",
+          "updatedAt": "2026-11-25T00:09:41.613Z",
+          "createdAt": "2026-11-25T00:09:00.800Z",
+          "id": "X3tAsj7cD2ImrjQ2",
           "name": "Arseniy Smirnov <lab4-test@example.invalid>",
           "type": "personal",
           "icon": null,
           "description": null,
           "customTelemetryTags": [],
-          "creatorId": "7c5b9ed3-d5df-47b4-934e-385bfffd1264"
+          "creatorId": "eb9f45a1-396f-48dc-b77e-e2618c5c4fec"
         }
       }
     ],
@@ -548,8 +548,8 @@
     }
   },
   {
-    "updatedAt": "2026-11-24T23:56:52.384Z",
-    "createdAt": "2026-11-24T23:56:52.384Z",
+    "updatedAt": "2026-11-25T00:09:46.587Z",
+    "createdAt": "2026-11-25T00:09:46.587Z",
     "id": "lab4workflow0005",
     "name": "05 Smirnov / СДП УИР 241 — HTTP Request",
     "description": null,
@@ -634,7 +634,7 @@
     "meta": null,
     "nodeGroups": [],
     "pinData": {},
-    "versionId": "5e43e25b-c313-452d-877c-d8faa7bc248e",
+    "versionId": "9d6b6eb5-6c11-449c-9165-89a001492ba7",
     "activeVersionId": null,
     "versionCounter": 1,
     "triggerCount": 0,
@@ -642,21 +642,21 @@
     "tags": [],
     "shared": [
       {
-        "updatedAt": "2026-11-24T23:56:52.385Z",
-        "createdAt": "2026-11-24T23:56:52.385Z",
+        "updatedAt": "2026-11-25T00:09:46.589Z",
+        "createdAt": "2026-11-25T00:09:46.589Z",
         "role": "workflow:owner",
         "workflowId": "lab4workflow0005",
-        "projectId": "ZFeg9QvzXN5A0ky6",
+        "projectId": "X3tAsj7cD2ImrjQ2",
         "project": {
-          "updatedAt": "2026-11-24T23:56:45.465Z",
-          "createdAt": "2026-11-24T23:56:23.523Z",
-          "id": "ZFeg9QvzXN5A0ky6",
+          "updatedAt": "2026-11-25T00:09:41.613Z",
+          "createdAt": "2026-11-25T00:09:00.800Z",
+          "id": "X3tAsj7cD2ImrjQ2",
           "name": "Arseniy Smirnov <lab4-test@example.invalid>",
           "type": "personal",
           "icon": null,
           "description": null,
           "customTelemetryTags": [],
-          "creatorId": "7c5b9ed3-d5df-47b4-934e-385bfffd1264"
+          "creatorId": "eb9f45a1-396f-48dc-b77e-e2618c5c4fec"
         }
       }
     ],
@@ -666,8 +666,8 @@
     }
   },
   {
-    "updatedAt": "2026-11-24T23:56:52.386Z",
-    "createdAt": "2026-11-24T23:56:52.386Z",
+    "updatedAt": "2026-11-25T00:09:46.590Z",
+    "createdAt": "2026-11-25T00:09:46.590Z",
     "id": "lab4workflow0006",
     "name": "06 Smirnov / СДП УИР 241 — Schedule",
     "description": null,
@@ -729,7 +729,7 @@
     "meta": null,
     "nodeGroups": [],
     "pinData": {},
-    "versionId": "3b656de5-845a-4a9a-be6d-d6f3f405f9bb",
+    "versionId": "cfc75342-2835-4859-bf8f-804f76494e1b",
     "activeVersionId": null,
     "versionCounter": 1,
     "triggerCount": 0,
@@ -737,21 +737,21 @@
     "tags": [],
     "shared": [
       {
-        "updatedAt": "2026-11-24T23:56:52.387Z",
-        "createdAt": "2026-11-24T23:56:52.387Z",
+        "updatedAt": "2026-11-25T00:09:46.591Z",
+        "createdAt": "2026-11-25T00:09:46.591Z",
         "role": "workflow:owner",
         "workflowId": "lab4workflow0006",
-        "projectId": "ZFeg9QvzXN5A0ky6",
+        "projectId": "X3tAsj7cD2ImrjQ2",
         "project": {
-          "updatedAt": "2026-11-24T23:56:45.465Z",
-          "createdAt": "2026-11-24T23:56:23.523Z",
-          "id": "ZFeg9QvzXN5A0ky6",
+          "updatedAt": "2026-11-25T00:09:41.613Z",
+          "createdAt": "2026-11-25T00:09:00.800Z",
+          "id": "X3tAsj7cD2ImrjQ2",
           "name": "Arseniy Smirnov <lab4-test@example.invalid>",
           "type": "personal",
           "icon": null,
           "description": null,
           "customTelemetryTags": [],
-          "creatorId": "7c5b9ed3-d5df-47b4-934e-385bfffd1264"
+          "creatorId": "eb9f45a1-396f-48dc-b77e-e2618c5c4fec"
         }
       }
     ],
@@ -761,8 +761,8 @@
     }
   },
   {
-    "updatedAt": "2026-11-24T23:56:52.388Z",
-    "createdAt": "2026-11-24T23:56:52.388Z",
+    "updatedAt": "2026-11-25T00:09:46.592Z",
+    "createdAt": "2026-11-25T00:09:46.592Z",
     "id": "lab4workflow0009",
     "name": "09 Smirnov / СДП УИР 241 — Redis SET GET",
     "description": null,
@@ -859,7 +859,7 @@
     "meta": null,
     "nodeGroups": [],
     "pinData": {},
-    "versionId": "1777c897-ea96-4f7c-9e9a-9af7debfee89",
+    "versionId": "9be8d313-83b6-4f4d-b8d7-e49c006e11ca",
     "activeVersionId": null,
     "versionCounter": 1,
     "triggerCount": 0,
@@ -867,21 +867,21 @@
     "tags": [],
     "shared": [
       {
-        "updatedAt": "2026-11-24T23:56:52.389Z",
-        "createdAt": "2026-11-24T23:56:52.389Z",
+        "updatedAt": "2026-11-25T00:09:46.593Z",
+        "createdAt": "2026-11-25T00:09:46.593Z",
         "role": "workflow:owner",
         "workflowId": "lab4workflow0009",
-        "projectId": "ZFeg9QvzXN5A0ky6",
+        "projectId": "X3tAsj7cD2ImrjQ2",
         "project": {
-          "updatedAt": "2026-11-24T23:56:45.465Z",
-          "createdAt": "2026-11-24T23:56:23.523Z",
-          "id": "ZFeg9QvzXN5A0ky6",
+          "updatedAt": "2026-11-25T00:09:41.613Z",
+          "createdAt": "2026-11-25T00:09:00.800Z",
+          "id": "X3tAsj7cD2ImrjQ2",
           "name": "Arseniy Smirnov <lab4-test@example.invalid>",
           "type": "personal",
           "icon": null,
           "description": null,
           "customTelemetryTags": [],
-          "creatorId": "7c5b9ed3-d5df-47b4-934e-385bfffd1264"
+          "creatorId": "eb9f45a1-396f-48dc-b77e-e2618c5c4fec"
         }
       }
     ],
@@ -891,8 +891,8 @@
     }
   },
   {
-    "updatedAt": "2026-11-24T23:56:52.390Z",
-    "createdAt": "2026-11-24T23:56:52.390Z",
+    "updatedAt": "2026-11-25T00:09:46.594Z",
+    "createdAt": "2026-11-25T00:09:46.594Z",
     "id": "lab4workflow0010",
     "name": "10 Smirnov / СДП УИР 241 — Redis Delete / Exists",
     "description": null,
@@ -1010,7 +1010,7 @@
     "meta": null,
     "nodeGroups": [],
     "pinData": {},
-    "versionId": "b233cf4e-4f03-48ab-bda1-0d49e1164ff6",
+    "versionId": "92533eb2-c220-415d-bf3e-b8a72578582b",
     "activeVersionId": null,
     "versionCounter": 1,
     "triggerCount": 0,
@@ -1018,21 +1018,21 @@
     "tags": [],
     "shared": [
       {
-        "updatedAt": "2026-11-24T23:56:52.391Z",
-        "createdAt": "2026-11-24T23:56:52.391Z",
+        "updatedAt": "2026-11-25T00:09:46.595Z",
+        "createdAt": "2026-11-25T00:09:46.595Z",
         "role": "workflow:owner",
         "workflowId": "lab4workflow0010",
-        "projectId": "ZFeg9QvzXN5A0ky6",
+        "projectId": "X3tAsj7cD2ImrjQ2",
         "project": {
-          "updatedAt": "2026-11-24T23:56:45.465Z",
-          "createdAt": "2026-11-24T23:56:23.523Z",
-          "id": "ZFeg9QvzXN5A0ky6",
+          "updatedAt": "2026-11-25T00:09:41.613Z",
+          "createdAt": "2026-11-25T00:09:00.800Z",
+          "id": "X3tAsj7cD2ImrjQ2",
           "name": "Arseniy Smirnov <lab4-test@example.invalid>",
           "type": "personal",
           "icon": null,
           "description": null,
           "customTelemetryTags": [],
-          "creatorId": "7c5b9ed3-d5df-47b4-934e-385bfffd1264"
+          "creatorId": "eb9f45a1-396f-48dc-b77e-e2618c5c4fec"
         }
       }
     ],

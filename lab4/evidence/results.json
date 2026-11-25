@@ -8,49 +8,147 @@
   {
     "file": "flow-01-manual-set.json",
     "id": "lab4workflow0001",
-    "error": "Command failed: docker compose -f lab4/compose.yaml exec -T n8n n8n execute --id=lab4workflow0001 --rawOutput",
-    "editorUrl": "http://localhost:5678/workflow/lab4workflow0001"
+    "editorUrl": "http://localhost:5678/workflow/lab4workflow0001",
+    "visibleStatus": [
+      "Executions",
+      "Execute workflow",
+      "Execute",
+      "Clear execution"
+    ],
+    "executions": [
+      {
+        "id": "1",
+        "status": "success",
+        "workflowId": "lab4workflow0001"
+      }
+    ]
   },
   {
     "file": "flow-02-code.json",
     "id": "lab4workflow0002",
-    "error": "Command failed: docker compose -f lab4/compose.yaml exec -T n8n n8n execute --id=lab4workflow0002 --rawOutput",
-    "editorUrl": "http://localhost:5678/workflow/lab4workflow0002"
+    "editorUrl": "http://localhost:5678/workflow/lab4workflow0002",
+    "visibleStatus": [
+      "Executions",
+      "Execute workflow",
+      "Execute",
+      "Clear execution"
+    ],
+    "executions": [
+      {
+        "id": "2",
+        "status": "success",
+        "workflowId": "lab4workflow0002"
+      }
+    ]
   },
   {
     "file": "flow-03-if.json",
     "id": "lab4workflow0003",
-    "error": "Command failed: docker compose -f lab4/compose.yaml exec -T n8n n8n execute --id=lab4workflow0003 --rawOutput",
-    "editorUrl": "http://localhost:5678/workflow/lab4workflow0003"
+    "editorUrl": "http://localhost:5678/workflow/lab4workflow0003",
+    "visibleStatus": [
+      "Executions",
+      "Execute workflow",
+      "Execute",
+      "Clear execution"
+    ],
+    "executions": [
+      {
+        "id": "3",
+        "status": "success",
+        "workflowId": "lab4workflow0003"
+      }
+    ]
   },
   {
     "file": "flow-04-set.json",
     "id": "lab4workflow0004",
-    "error": "Command failed: docker compose -f lab4/compose.yaml exec -T n8n n8n execute --id=lab4workflow0004 --rawOutput",
-    "editorUrl": "http://localhost:5678/workflow/lab4workflow0004"
+    "editorUrl": "http://localhost:5678/workflow/lab4workflow0004",
+    "visibleStatus": [
+      "Executions",
+      "Execute workflow",
+      "Execute",
+      "Clear execution"
+    ],
+    "executions": [
+      {
+        "id": "4",
+        "status": "success",
+        "workflowId": "lab4workflow0004"
+      }
+    ]
   },
   {
     "file": "flow-05-http.json",
     "id": "lab4workflow0005",
-    "error": "Command failed: docker compose -f lab4/compose.yaml exec -T n8n n8n execute --id=lab4workflow0005 --rawOutput",
-    "editorUrl": "http://localhost:5678/workflow/lab4workflow0005"
+    "editorUrl": "http://localhost:5678/workflow/lab4workflow0005",
+    "visibleStatus": [
+      "Executions",
+      "Execute workflow",
+      "Execute",
+      "Clear execution"
+    ],
+    "executions": [
+      {
+        "id": "5",
+        "status": "success",
+        "workflowId": "lab4workflow0005"
+      }
+    ]
   },
   {
     "file": "flow-06-schedule.json",
     "id": "lab4workflow0006",
-    "error": "Command failed: docker compose -f lab4/compose.yaml exec -T n8n n8n execute --id=lab4workflow0006 --rawOutput",
-    "editorUrl": "http://localhost:5678/workflow/lab4workflow0006"
+    "editorUrl": "http://localhost:5678/workflow/lab4workflow0006",
+    "visibleStatus": [
+      "Executions",
+      "Execute workflow",
+      "Execute",
+      "Clear execution"
+    ],
+    "executions": [
+      {
+        "id": "6",
+        "status": "success",
+        "workflowId": "lab4workflow0006"
+      }
+    ]
   },
   {
     "file": "flow-09-redis.json",
     "id": "lab4workflow0009",
-    "error": "Command failed: docker compose -f lab4/compose.yaml exec -T n8n n8n execute --id=lab4workflow0009 --rawOutput",
-    "editorUrl": "http://localhost:5678/workflow/lab4workflow0009"
+    "editorUrl": "http://localhost:5678/workflow/lab4workflow0009",
+    "visibleStatus": [
+      "Executions",
+      "Execute workflow",
+      "Execute",
+      "Clear execution"
+    ],
+    "redisGet": "Smirnov / СДП УИР 241",
+    "executions": [
+      {
+        "id": "7",
+        "status": "success",
+        "workflowId": "lab4workflow0009"
+      }
+    ]
   },
   {
     "file": "flow-10-redis.json",
     "id": "lab4workflow0010",
-    "error": "Command failed: docker compose -f lab4/compose.yaml exec -T n8n n8n execute --id=lab4workflow0010 --rawOutput",
-    "editorUrl": "http://localhost:5678/workflow/lab4workflow0010"
+    "editorUrl": "http://localhost:5678/workflow/lab4workflow0010",
+    "visibleStatus": [
+      "Executions",
+      "Execute workflow",
+      "Execute",
+      "Clear execution"
+    ],
+    "redisExists": "0",
+    "executions": [
+      {
+        "id": "8",
+        "status": "success",
+        "workflowId": "lab4workflow0010"
+      }
+    ]
   }
 ]
