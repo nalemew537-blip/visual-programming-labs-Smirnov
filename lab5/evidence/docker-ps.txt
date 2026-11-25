@@ -1,6 +1,6 @@
 NAME             IMAGE                                 COMMAND                  SERVICE   CREATED          STATUS                    PORTS
-lab5-builder-1   baptistearno/typebot-builder:latest   "/bin/sh -c ./${SCOP…"   builder   39 seconds ago   Up 33 seconds             127.0.0.1:8080->3000/tcp
-lab5-db-1        postgres:16                           "docker-entrypoint.s…"   db        48 seconds ago   Up 39 seconds (healthy)   5432/tcp
-lab5-mailpit-1   axllent/mailpit:latest                "/mailpit"               mailpit   48 seconds ago   Up 39 seconds (healthy)   1025/tcp, 1110/tcp, 127.0.0.1:8025->8025/tcp
-lab5-redis-1     redis:7                               "docker-entrypoint.s…"   redis     48 seconds ago   Up 39 seconds (healthy)   6379/tcp
-lab5-viewer-1    baptistearno/typebot-viewer:latest    "/bin/sh -c ./${SCOP…"   viewer    39 seconds ago   Up 33 seconds             127.0.0.1:8081->3000/tcp
+lab5-builder-1   baptistearno/typebot-builder:latest   "/bin/sh -c ./${SCOP…"   builder   33 seconds ago   Up 26 seconds             127.0.0.1:8080->3000/tcp
+lab5-db-1        postgres:16                           "docker-entrypoint.s…"   db        43 seconds ago   Up 32 seconds (healthy)   5432/tcp
+lab5-mailpit-1   axllent/mailpit:latest                "/mailpit"               mailpit   43 seconds ago   Up 32 seconds (healthy)   1025/tcp, 1110/tcp, 127.0.0.1:8025->8025/tcp
+lab5-redis-1     redis:7                               "docker-entrypoint.s…"   redis     43 seconds ago   Up 32 seconds (healthy)   6379/tcp
+lab5-viewer-1    baptistearno/typebot-viewer:latest    "/bin/sh -c ./${SCOP…"   viewer    33 seconds ago   Up 26 seconds             127.0.0.1:8081->3000/tcp
